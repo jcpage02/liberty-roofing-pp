@@ -1,14 +1,14 @@
-import bcrypt from "bcryptjs";
+const bcrypt = require('bcryptjs')
 
 module.exports = {
   login: async (req, res) => {
     const { username, password } = req.body;
-    const db = req.app.get("db");
-    const userArray = await db.get_employee({ uesrname });
-    const { rep_id, rep_username, rep_hash, is_admin } = userArray[0];
+    const db = req.app.get('db');
+    const userArray = await db.rep.get_employee({ username });
     if (!userArray[0]) {
       return res.status(200).send({ message: "Incorrect Username" });
     }
+    const { rep_id, rep_username, rep_hash, is_admin } = userArray[0];
     const compare = bcrypt.compareSync(password, rep_hash);
     if (!compare) {
       return res.status(401).send({ message: "Incorrect Password" });
@@ -28,4 +28,4 @@ module.exports = {
       res.status(401).send("Please log in.");
     }
   }
-};
+}

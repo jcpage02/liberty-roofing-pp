@@ -1,0 +1,50 @@
+.Home {
+  margin: 0;
+}
+
+.header-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 75px;
+  background-color: #383838;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.header-home-logo {
+  margin: 0 40px;
+  font-size: 20px;
+  color: #fae228;
+}
+
+.header-logo {
+  position: absolute;
+  left: calc(50% - 80px);
+  font-size: 20px;
+  color: #fae228;
+}
+
+.header-home-navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 70vw;
+}
+
+.header-navbar {
+  visibility: hidden;
+}
+
+.header-ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.header-li {
+  padding-right: 14px;
+  padding-left: 14px;
+}
