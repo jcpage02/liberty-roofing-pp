@@ -21,6 +21,7 @@ class Appointments extends Component {
       });
       res.status(200).send(res.data);
     });
+    console.log('Apts' + this.state.appointments)
   }
 
   handleSelector = (prop, e)=> {
@@ -49,7 +50,7 @@ class Appointments extends Component {
           <h5 className={dashAptsTitle}>Appointments</h5>
           <div className="apt-expand">
             <Link to={pathname === "/admin/dash" ? "/admin/appointments" : "/admin/dash"}>
-              <i class="fas fa-expand fa-lg" />
+              <i className="fas fa-expand fa-lg" />
             </Link>
           </div>
         </div>

@@ -25,18 +25,8 @@ app.use(cors())
 
 app.post('/api/login', authCtrl.login)
 
-// app.get('/api/reviews')
-
 //////////// JOB //////////////
 app.get('/api/active-jobs', jobCtrl.getActive)
-app.get('/api/customers')
-app.get('/api/crews')
-
-app.put('/api/jobs')
-
-app.post('/api/jobs', jobCtrl.createJob)
-
-app.delete('/api/jobs')
 
 ////////// MESSAGES ///////////
 app.get('/send-msg', msgCtrl.sendTwilioMessage)
@@ -44,36 +34,13 @@ app.get('/send-email', msgCtrl.sendNodeMailer)
 
 //////// APPOINTMENT //////////
 app.get('/api/apts', aptCtrl.getApts)
-app.get('/api/reps')
-app.get('/api/repSkills')
-
-app.put('/api/apts')
-
-app.post('/api/apts') 
-
-app.delete('/api/apts')
+app.post('/api/apts', aptCtrl.createApt)
 
 //////////// REP //////////////
 app.get('/api/reps')
-app.get('/api/reps_skills')
-
 app.put('/api/reps')
-
 app.post('/api/reps')
-
 app.delete('/api/reps')
-
-
-//////////// GOAL //////////////
-app.get('/api/jobs')
-app.get('/api/goals')
-
-app.put('/api/goals')
-
-app.post('/api/goals')
-
-app.delete('/api/goals')
-
 
 
 massive(CONNECTION_STRING)

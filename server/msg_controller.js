@@ -8,19 +8,19 @@ let nodemailer = require("nodemailer");
 
 module.exports = {
   sendTwilioMessage: (req, res) => {
-    const { recipient, message } = req.query;
+    const { phone, message } = req.query;
 
     client.messages
       .create({
         body: message,
         from: "+18017973237",
         // to: "+1" + recipient
-        to: "+18168881088"
+        to: `+1${phone}`
       })
       .then(res => console.log(res.body));
   },
   sendNodeMailer: async (req, res) => {
-    const { recipient, message } = req.query;
+    const { email, message } = req.query;
     let account = await nodemailer.createTestAccount();
     let transporter = nodemailer.createTransport({
       host: "smtp-mail.outlook.com",
@@ -34,8 +34,8 @@ module.exports = {
     let mailOptions = {
       from: `"Liberty Roofing" <${EMAIL_USER}>`,
       // to: recipient,
-      to: "ldscirkev@gmail.com",
-      subject: "Hey there!",
+      to: email,
+      subject: "Thanks for setting up an appointment!",
       text: 'this part seems worthless',
       html: `<b>${message}</b>`
     };

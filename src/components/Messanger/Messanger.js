@@ -19,10 +19,12 @@ class Messanger extends Component {
     });
   };
   handleSendSMS = () => {
-    const { twilio, selectedPhone } = this.state;
+    const { twilio } = this.state;
+    const { selectedPhone } = this.props;
+    console.log(selectedPhone)
     axios
       .get(
-        `/send-msg?recipient=${selectedPhone}&message=${twilio.message}`,
+        `/send-msg?phone=${selectedPhone}&message=${twilio.message}`,
         twilio
       )
       .catch(err => console.log(err));
@@ -33,11 +35,12 @@ class Messanger extends Component {
     });
   };
   handleSendEmail = () => {
-    const { twilio, selectedEmail } = this.state;
+    const { nodemailer } = this.state;
+    const { selectedEmail } = this.props;
     axios
       .get(
-        `/send-email?recipient=${selectedEmail}&message=${twilio.message}`,
-        twilio
+        `/send-email?email=${selectedEmail}&message=${nodemailer.message}`,
+        nodemailer
       )
       .catch(err => console.log(err));
     this.setState({
@@ -48,14 +51,13 @@ class Messanger extends Component {
   };
 
   render() {
-    const {selectedEmail, selectedPhone} = this.props
-    console.log(this.props)
+    const { selectedEmail, selectedPhone } = this.props;
     return (
       <div className="Messanger">
         <span>
           <h4>Send SMS: {selectedPhone}</h4>
-          <input
-            className="msg-twilio-input"
+          <textarea
+            className="msg-input"
             onChange={e =>
               this.handleChange("twilio", "message", e.target.value)
             }
@@ -66,8 +68,8 @@ class Messanger extends Component {
         <button onClick={() => this.handleSendSMS()}>Send SMS</button>
         <span>
           <h4>Send Email: {selectedEmail}</h4>
-          <input
-            className="msg-nodemailer-input"
+          <textarea
+            className="msg-input"
             onChange={e =>
               this.handleChange("nodemailer", "message", e.target.value)
             }

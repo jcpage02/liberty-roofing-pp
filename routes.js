@@ -15,7 +15,6 @@ export default (
         <Route component={Header}/>
         <Route exact path='/' component={Home} />
         <Route path='/employee/login' component={Login} />
-        {/* <Route path='/rep/dash' component={RepDash} /> */}
         <Route path='/admin/dash' component={AdminDash} />
         <Route path='/admin/jobs' component={Job} />
         <Route path='/admin/reps' component={Rep} />

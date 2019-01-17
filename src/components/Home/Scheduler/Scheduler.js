@@ -24,10 +24,10 @@ class Scheduler extends Component {
   };
 
   render() {
-    let todayObj = new Date();
-    let day = todayObj.getDate();
-    let month = todayObj.getMonth() + 1;
-    let year = todayObj.getFullYear();
+    // let todayObj = new Date();
+    // let day = todayObj.getDate();
+    // let month = todayObj.getMonth() + 1;
+    // let year = todayObj.getFullYear();
 
     return (
       <div className="Scheduler">
