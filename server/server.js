@@ -4,6 +4,7 @@ const massive = require('massive')
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const authCtrl = require('./auth_controller')
+const jobCtrl = require('./job_controller')
 
 
 const app = express()
@@ -21,13 +22,13 @@ app.post('/api/login', authCtrl.login)
 // app.get('/api/reviews')
 
 //////////// JOB //////////////
-app.get('/api/jobs')
+app.get('/api/active-jobs', jobCtrl.getActive)
 app.get('/api/customers')
 app.get('/api/crews')
 
 app.put('/api/jobs')
 
-app.post('/api/jobs')
+app.post('/api/jobs', jobCtrl.createJob)
 
 app.delete('/api/jobs')
 

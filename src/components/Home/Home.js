@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Home.css";
+import "./Home.scss";
 import Scheduler from "./Scheduler/Scheduler";
 import Header from "../Header/Header";
 

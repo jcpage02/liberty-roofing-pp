@@ -12,15 +12,15 @@ insert into job (
     cust_id
 )
 values (
-    17995,
-    '02-15-2019',
-    '300 N Withers Rd',
-    'Liberty',
-    'MO',
-    64068,
-    'Insurance',
-    '02-17-2019',
-    2,
-    2,
-    2
+    ${price},
+    ${date},
+    ${address},
+    ${city},
+    ${state},
+    ${zip},
+    ${status},
+    ${ecd},
+    ${crewId},
+    ${repId},
+    ${custId}
 )

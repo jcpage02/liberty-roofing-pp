@@ -1,4 +1,41 @@
 .App {
   text-align: center;
-  background-color: rgb(32, 32, 32);
+  background-color: #E0E0E0;
 }
+
+html span {
+  font-size: 14px;
+}
+
+html .Title-title-105{
+  font-size: 16px;
+}
+
+html .MuiTableCell-body-47 {
+  font-size: 14px;
+}
+
+html .TableCell-cell-156 {
+  overflow: auto;
+}
+
+html .TableCell-cellNoWrap-160 {
+  white-space: normal;
+}
+
+html .TableCell-cell-156 {
+  text-overflow: inherit;
+}
+
+html .Table-table-30 {
+  width: auto;
+}
+
+html .MuiInputBase-input-152 .MuiInput-input-137 {
+  font-size: 16px;
+}
+
+html .MuiInput-input-137 {
+  font-size: 14px;
+}
+

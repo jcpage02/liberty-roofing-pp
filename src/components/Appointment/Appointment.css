@@ -1,0 +1,47 @@
+.Appointments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(29, 28, 28);
+  width: 100vw;
+  height: 100vh;
+}
+
+.apt-tbl {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  overflow-x: scroll;
+  /* overflow-y: scroll; */
+  width: 900px;
+  height: 500px;
+  background-color: gray;
+  border-radius: 10px;
+  box-sizing: content-box;
+}
+
+.apt-tbl::-webkit-scrollbar { width: 1 }
+
+.apt-tbl-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: auto;
+  height: 100%;
+  background-color: rgb(245, 245, 245);
+  border: 0.3px gray solid;
+}
+
+.apt-tbl-header {
+  background-color: rgb(207, 207, 207);
+  border-bottom: 1px gray solid;
+  width: 100%;
+  padding: 10px;
+}
+
+.apt-tbl-cell {
+  width: auto;
+  height: auto;
+  padding: 5px;
+}

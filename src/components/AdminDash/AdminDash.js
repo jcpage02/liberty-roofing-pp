@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import "./AdminDash.css";
+import Job from '../Job/Job'
 import Chart from "./Chart";
 
 class AdminDash extends Component {
@@ -10,7 +11,7 @@ class AdminDash extends Component {
         <Header />
         <div className="dash-body1">
           <div className="dash-body1-left">
-            <div className="dash-jobs" />
+            <Job path='dash'/>
             <div className="dash-apts" />
           </div>
           <div className="dash-body1-right" />
