@@ -1,117 +1,112 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Appointment.css";
+import Messanger from "./../Messanger/Messanger";
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 class Appointments extends Component {
   state = {
-    twilio: {
-      recipient: "",
-      message: ""
-    }
+    appointments: [],
+    selectedEmail: '',
+    selectedPhone: ''
   };
 
-  handleChange = (prop, e) => {
-    let newState = { ...this.state.twilio, [prop]: e };
-    this.setState({
-      twilio: newState
+  componentDidMount() {
+    axios.get("/api/apts").then(res => {
+      console.log(res.data);
+      this.setState({
+        appointments: res.data
+      });
+      res.status(200).send(res.data);
     });
-  };
+  }
 
-  handleSend = () => {
-    const { twilio } = this.state;
-    console.log(twilio);
-    axios
-      .get(
-        `/send-msg?recipient=${twilio.recipient}&message=${twilio.message}`,
-        twilio
-      )
-      .catch(err => console.log(err));
-  };
-  handleSendEmail = () => {
-    const { twilio } = this.state;
-    console.log(twilio);
-    axios
-      .get(
-        `/send-email?recipient=${twilio.recipient}&message=${twilio.message}`,
-        twilio
-      )
-      .catch(err => console.log(err));
-  };
+  handleSelector = (prop, e)=> {
+    this.setState({
+        [prop]: e
+    })
+  }
 
   render() {
     const short = "here is the data";
     const medium = "here is even longer data";
     const long = "here is the longest data ever";
 
+    const { pathname } = this.props.location;
+    const dashApts = pathname === "/admin/dash" ? "Appointments" : "Appointments-lg";
+    const dashAptsHdr = pathname === "/admin/dash" ? "dash-apt-header" : "apt-header";
+    const dashAptsTitle = pathname === "/admin/dash" ? "dash-apt-title" : "apt-title";
+    const dashMsgr = pathname === "/admin/dash" ? "dash-msgr" : "apt-msgr";
+    const dashTbl = pathname === "/admin/dash" ? "dash-tbl" : "apt-tbl";
+    const dashTblHeader = pathname === "/admin/dash" ? "dash-apt-tbl-header" : "apt-tbl-header";
+    const dashTblCell = pathname === "/admin/dash" ? "dash-apt-tbl-cell" : "apt-tbl-cell";
+
     return (
-      <div className="Appointments">
-        <div className="apt-tbl">
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={short} />
-            <input className="apt-tbl-cell" type="text" value={short} />
-            <input className="apt-tbl-cell" type="text" value={short} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={medium} />
-            <input className="apt-tbl-cell" type="text" value={medium} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={short} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={medium} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className="apt-tbl-header">Column Name</div>
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
-            <input className="apt-tbl-cell" type="text" value={long} />
+      <div className={dashApts}>
+        <div className={dashAptsHdr}>
+          <h5 className={dashAptsTitle}>Appointments</h5>
+          <div className="apt-expand">
+            <Link to={pathname === "/admin/dash" ? "/admin/appointments" : "/admin/dash"}>
+              <i class="fas fa-expand fa-lg" />
+            </Link>
           </div>
         </div>
-        <div className="apt-twilio">
-          <span>
-            Twilio:
-            <input
-              className="twilio-input"
-              onChange={e => this.handleChange("message", e.target.value)}
-              type="text"
+        <div className={dashTbl}>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Customer Name</div>
+            <input className={dashTblCell} type="text" value={'James Page'} />
+            <input className={dashTblCell} type="text" value={short} />
+            <input className={dashTblCell} type="text" value={short} />
+          </div>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Phone #</div>
+            <input className={dashTblCell} type="text" value={8168881088} 
+                onClick={e => this.handleSelector('selectedPhone', e.target.value)}
             />
-          </span>
-          <button onClick={() => this.handleSend()}>Send SMS</button>
-          <span>
-            Nodemailer:
-            <input
-              className="nodemailer-input"
-              onChange={e => this.handleChange("message", e.target.value)}
-              type="text"
+            <input className={dashTblCell} type="text" value={medium} />
+            <input className={dashTblCell} type="text" value={long} />
+          </div>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Email</div>
+            <input className={dashTblCell} type="text" value={'ldscirkev@gmail.com'} 
+                onClick={e => this.handleSelector('selectedEmail',  e.target.value)}
             />
-          </span>
-          <button onClick={() => this.handleSendEmail()}>Send Email</button>
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={medium} />
+          </div>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Column Name</div>
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+          </div>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Column Name</div>
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+          </div>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Column Name</div>
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+          </div>
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Column Name</div>
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+            <input className={dashTblCell} type="text" value={long} />
+          </div>
+        </div>
+        <div className={dashMsgr}>
+          <Messanger selectedEmail={this.state.selectedEmail} selectedPhone={this.state.selectedPhone}/>
         </div>
       </div>
     );
   }
 }
 
-export default Appointments;
+export default withRouter(Appointments);

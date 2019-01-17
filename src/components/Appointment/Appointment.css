@@ -3,9 +3,78 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgb(29, 28, 28);
-  width: 100vw;
-  height: 100vh;
+  background-color: #4d4d4d;
+  width: 100%;
+  height: 50%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px #4D4D4D;
+}
+.Appointments-lg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4D4D4D;
+}
+
+.dash-apt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+    padding-top: 5px;
+    color: #E0E0E0;
+}
+.apt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 10px;
+    padding-top: 5px;
+    color: #E0E0E0;
+}
+
+.dash-apt-title {
+    width: 100%;
+    padding-left: 25px;
+    margin: 0;
+}
+.apt-title {
+    width: 100%;
+    padding-left: 25px;
+    margin: 0;
+    font-size: 24px;
+}
+
+.fa-expand {
+    color: #E0E0E0;
+}
+
+.fa-expand:hover {
+    color: #F8E055;
+}
+
+.dash-tbl {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  overflow-x: scroll;
+  /* overflow-y: scroll; */
+  width: 95%;
+  height: 80%;
+  background-color: gray;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 .apt-tbl {
@@ -32,43 +101,49 @@
   width: auto;
   height: 100%;
   background-color: rgb(245, 245, 245);
-  border: 0.3px gray solid;
+  /* border: 0.3px gray solid; */
+}
+
+.dash-apt-tbl-header {
+  color: #4d4d4d;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 5px;
 }
 
 .apt-tbl-header {
-  background-color: rgb(207, 207, 207);
-  border-bottom: 1px gray solid;
+  color: #4d4d4d;
+  background-color: #ffffff;
   width: 100%;
   padding: 10px;
 }
 
+.dash-apt-tbl-cell {
+  width: auto;
+  height: auto;
+  font-size: 11px;
+  padding: 3px;
+}
 .apt-tbl-cell {
   width: auto;
   height: auto;
   padding: 5px;
 }
 
-.apt-twilio {
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-  flex-wrap: wrap;
-  width: 900px;
-  height: 350px;
-  background-color: gray;
-  border-radius: 10px;
+.dash-msgr {
+  visibility: hidden;
 }
 
-.twilio-input {
-  width: 600px;
-  height: 100px;
-}
-.nodemailer-input {
-  width: 600px;
-  height: 100px;
-}
-
-.apt-twilio button {
-  width: 80px;
-  height: 30px;
+.apt-msgr {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    overflow-x: scroll;
+    /* overflow-y: scroll; */
+    width: 900px;
+    height: 350px;
+    background-color: gray;
+    border-radius: 10px;
+    box-sizing: content-box;
+    margin-bottom: 50px;
 }

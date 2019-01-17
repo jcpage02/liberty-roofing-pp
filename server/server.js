@@ -8,6 +8,7 @@ const cors = require('cors')
 const authCtrl = require('./auth_controller')
 const jobCtrl = require('./job_controller')
 const msgCtrl = require('./msg_controller')
+const aptCtrl = require('./apt-controller')
 
 
 const app = express()
@@ -42,7 +43,7 @@ app.get('/send-msg', msgCtrl.sendTwilioMessage)
 app.get('/send-email', msgCtrl.sendNodeMailer)
 
 //////// APPOINTMENT //////////
-app.get('/api/apts')
+app.get('/api/apts', aptCtrl.getApts)
 app.get('/api/reps')
 app.get('/api/repSkills')
 

@@ -17,7 +17,7 @@ module.exports = {
         // to: "+1" + recipient
         to: "+18168881088"
       })
-      .then(message => console.log(message.body));
+      .then(res => console.log(res.body));
   },
   sendNodeMailer: async (req, res) => {
     const { recipient, message } = req.query;

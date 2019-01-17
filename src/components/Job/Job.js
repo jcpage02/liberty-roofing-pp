@@ -5,23 +5,6 @@ import axios from "axios";
 import JobTable from "../Tables/JobTable";
 
 class Job extends Component {
-  state = {
-    allJobs: [],
-    keys: [],
-  };
-
-  componentDidMount() {
-    let keys = [];
-    axios.get("/api/active-jobs").then(res => {
-      console.log(res.data);
-      keys = Object.keys(res.data[0]);
-
-      this.setState({
-        allJobs: res.data,
-        keys
-      });
-    });
-  }
 
   render() {
     const { path } = this.props;

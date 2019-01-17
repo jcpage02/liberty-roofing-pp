@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import "./AdminDash.css";
 import Job from '../Job/Job'
+import Appointments from '../Appointment/Appoinment'
 import Chart from "./Chart";
 
 class AdminDash extends Component {
@@ -12,7 +13,7 @@ class AdminDash extends Component {
         <div className="dash-body1">
           <div className="dash-body1-left">
             <Job path='dash'/>
-            <div className="dash-apts" />
+            <Appointments className="dash-apts" />
           </div>
           <div className="dash-body1-right" />
         </div>
