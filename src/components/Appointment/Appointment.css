@@ -15,13 +15,15 @@
   overflow-x: scroll;
   /* overflow-y: scroll; */
   width: 900px;
-  height: 500px;
+  height: 350px;
   background-color: gray;
   border-radius: 10px;
   box-sizing: content-box;
 }
 
-.apt-tbl::-webkit-scrollbar { width: 1 }
+.apt-tbl::-webkit-scrollbar {
+  width: 1;
+}
 
 .apt-tbl-column {
   display: flex;
@@ -44,4 +46,29 @@
   width: auto;
   height: auto;
   padding: 5px;
+}
+
+.apt-twilio {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 350px;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.twilio-input {
+  width: 600px;
+  height: 100px;
+}
+.nodemailer-input {
+  width: 600px;
+  height: 100px;
+}
+
+.apt-twilio button {
+  width: 80px;
+  height: 30px;
 }

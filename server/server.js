@@ -3,12 +3,16 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
+const cors = require('cors')
+
 const authCtrl = require('./auth_controller')
 const jobCtrl = require('./job_controller')
+const msgCtrl = require('./msg_controller')
 
 
 const app = express()
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
+const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, ACCOUNT_SID, AUTH_TOKEN} = process.env
+const client = require('twilio')(ACCOUNT_SID, AUTH_TOKEN);
 
 app.use(express.json())
 app.use(session({
@@ -16,6 +20,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+app.use(cors())
 
 app.post('/api/login', authCtrl.login)
 
@@ -31,6 +36,10 @@ app.put('/api/jobs')
 app.post('/api/jobs', jobCtrl.createJob)
 
 app.delete('/api/jobs')
+
+////////// MESSAGES ///////////
+app.get('/send-msg', msgCtrl.sendTwilioMessage)
+app.get('/send-email', msgCtrl.sendNodeMailer)
 
 //////// APPOINTMENT //////////
 app.get('/api/apts')
