@@ -1,4 +1,4 @@
-insert into job (
+insert into job_old (
     job_price,
     job_date,
     job_address,

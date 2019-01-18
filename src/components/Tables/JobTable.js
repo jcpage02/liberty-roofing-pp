@@ -56,7 +56,7 @@ class JobTable extends Component {
       { name: "crew_head", title: "Crew Head" },
       { name: "crew_phone", title: "Crew Phone #" }
     ],
-    dateColumns: ["date_sold"],
+    dateColumns: ["date_sold", 'ecd'],
     currencyColumns: ["price"]
   };
 

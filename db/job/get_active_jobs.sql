@@ -6,7 +6,7 @@ select j.job_id as id, j.job_price as price, j.job_date as date_sold, j.job_addr
         c.cust_phone as phone, c.cust_email as email,
         
         cw.crew_name, cw.crew_head, cw.crew_phone
-from job j
+from job_old j
 join customer c on c.cust_id = j.cust_id
 join crew cw on cw.crew_id = j.crew_id
 where job_status not in ('Completed');
