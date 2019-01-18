@@ -9,24 +9,14 @@ import { isNumber } from "util";
 class Appointments extends Component {
   state = {
     appointments: [],
-    keys: [],
-    values: [],
     selectedEmail: "",
     selectedPhone: ""
   };
 
   componentDidMount() {
     axios.get("/api/apts").then(res => {
-      let keys = [];
-      let values = [];
-      res.data.map(array => {
-        keys = Object.keys(array);
-        values.push(Object.values(array));
-      });
       this.setState({
-        appointments: res.data,
-        keys,
-        values
+        appointments: res.data
       });
     });
   }
@@ -38,11 +28,7 @@ class Appointments extends Component {
   };
 
   render() {
-    const { keys, values } = this.state;
-    // console.log(keys, values)
-    const short = "here is the data";
-    const medium = "here is even longer data";
-    const long = "here is the longest data ever";
+    const { appointments } = this.state;
 
     const { pathname } = this.props.location;
     const dashApts =
@@ -58,22 +44,95 @@ class Appointments extends Component {
     const dashTblCell =
       pathname === "/admin/dash" ? "dash-apt-tbl-cell" : "apt-tbl-cell";
 
-    let columnNum = 0;
-    let cell = "";
-    const rowOne = values.map(array => {
-      array.map((value, i) => {
-        console.log(value);
-        if (i === 1) {
-          columnNum = i;
-          cell = value;
-        }
-      });
-      return (
-        <div key={columnNum}>
-          <input className={dashTblCell} type="text" value={cell} />
-        </div>
-      );
+    console.log(appointments);
+    let ids = [];
+    let firstNames = [];
+    let lastNames = [];
+    let addresses = [];
+    let cities = [];
+    let states = [];
+    let phones = [];
+    let emails = [];
+    let images = [];
+    let dates = [];
+    let types = [];
+
+    appointments.map((object, i) => {
+      ids.push(object.apt_id);
+      firstNames.push(object.cust_first);
+      lastNames.push(object.cust_last);
+      addresses.push(object.cust_address);
+      cities.push(object.cust_city);
+      states.push(object.cust_state);
+      phones.push(object.cust_phone);
+      emails.push(object.cust_email);
+      images.push(object.cust_img);
+      dates.push(object.apt_date);
+      types.push(object.apt_type);
     });
+
+    let idColumn = ids.map((id, i) => (
+      <div className={dashTblCell} key={i}>
+        <button className={dashTblCell} type="text" value={id}>
+          Edit
+        </button>
+        <button className={dashTblCell} type="text" value={id}>
+          Delete
+        </button>
+      </div>
+    ));
+    let firstNamesColumns = firstNames.map((name, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{name}</textarea>
+      </div>
+    ));
+    let lastNamesColumns = lastNames.map((name, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{name}</textarea>
+      </div>
+    ));
+    let addressesColumns = addresses.map((address, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{address}</textarea>
+      </div>
+    ));
+    let citiesColumns = cities.map((city, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{city}</textarea>
+      </div>
+    ));
+    let statesColumns = states.map((state, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{state}</textarea>
+      </div>
+    ));
+    let phonesColumns = phones.map((phone, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{phone}</textarea>
+      </div>
+    ));
+    let emailsColumns = emails.map((email, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{email}</textarea>
+      </div>
+    ));
+    let imagesColumns = images.map((img, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{img}</textarea>
+      </div>
+    ));
+    let datesColumns = dates.map((date, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{date}</textarea>
+      </div>
+    ));
+    let typesColumns = types.map((type, i) => (
+      <div className={dashTblCell} key={i}>
+        <textarea>{type}</textarea>
+      </div>
+    ));
+
+    console.log(ids, firstNames, lastNames);
 
     return (
       <div className={dashApts}>
@@ -93,51 +152,53 @@ class Appointments extends Component {
         </div>
         <div className={dashTbl}>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[1]}</div>
-            {rowOne}
+            <div className={dashTblHeader}>ID BUTTON</div>
+            {idColumn}
+          </div>
+
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>First Name</div>
+            {firstNamesColumns}
+          </div>
+
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Last Name</div>
+            {lastNamesColumns}
+          </div>
+
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>Address</div>
+            {addressesColumns}
+          </div>
+
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>City</div>
+            {citiesColumns}
+          </div>
+
+          <div className="apt-tbl-column">
+            <div className={dashTblHeader}>State</div>
+            {statesColumns}
           </div>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[2]}</div>
-            <input
-              className={dashTblCell}
-              type="text"
-              value={"ldscirkev@gmail.com"}
-              onClick={e =>
-                this.handleSelector("selectedEmail", e.target.value)
-              }
-            />
+            <div className={dashTblHeader}>Phone #</div>
+            {phonesColumns}
           </div>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[3]}</div>
-            <input className={dashTblCell} type="text" value={long} />
+            <div className={dashTblHeader}>Email</div>
+            {emailsColumns}
           </div>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[4]}</div>
-            <input className={dashTblCell} type="text" value={long} />
+            <div className={dashTblHeader}>Images</div>
+            {imagesColumns}
           </div>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[5]}</div>
-            <input className={dashTblCell} type="text" value={long} />
+            <div className={dashTblHeader}>Date</div>
+            {datesColumns}
           </div>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[6]}</div>
-            <input className={dashTblCell} type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[7]}</div>
-            <input className={dashTblCell} type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[8]}</div>
-            <input className={dashTblCell} type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[9]}</div>
-            <input className={dashTblCell} type="text" value={long} />
-          </div>
-          <div className="apt-tbl-column">
-            <div className={dashTblHeader}>{keys[10]}</div>
-            <input className={dashTblCell} type="text" value={long} />
+            <div className={dashTblHeader}>Type</div>
+            {typesColumns}
           </div>
         </div>
         <div className={dashMsgr}>
