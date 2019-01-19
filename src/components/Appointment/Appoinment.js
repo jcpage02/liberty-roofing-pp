@@ -4,13 +4,14 @@ import "./Appointment.css";
 import Messanger from "./../Messanger/Messanger";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { isNumber } from "util";
 
 class Appointments extends Component {
   state = {
     appointments: [],
     selectedEmail: "",
-    selectedPhone: ""
+    selectedPhone: "",
+    selected: false,
+    newAppointment: false
   };
 
   componentDidMount() {
@@ -22,13 +23,13 @@ class Appointments extends Component {
   }
 
   handleSelector = (prop, e) => {
-    this.setState({
-      [prop]: e
-    });
+    this.state.selected
+      ? this.setState({ [prop]: "", selected: false })
+      : this.setState({ [prop]: e, selected: true });
   };
 
   render() {
-    const { appointments } = this.state;
+    const { appointments, newAppointment } = this.state;
 
     const { pathname } = this.props.location;
     const dashApts =
@@ -43,8 +44,15 @@ class Appointments extends Component {
       pathname === "/admin/dash" ? "dash-apt-tbl-header" : "apt-tbl-header";
     const dashTblCell =
       pathname === "/admin/dash" ? "dash-apt-tbl-cell" : "apt-tbl-cell";
+    const dashTblBtnCol =
+      pathname === "/admin/dash" ? "dash-edit-delete" : "edit-delete";
+    const dashTblNewBtn =
+      pathname === "/admin/dash" ? "" : "far fa-plus-square fa-lg";
+    const dashTblEditBtn =
+      pathname === "/admin/dash" ? "" : "fas fa-edit fa-lg";
+    const dashTblDelBtn =
+      pathname === "/admin/dash" ? "" : "far fa-trash-alt fa-lg";
 
-    console.log(appointments);
     let ids = [];
     let firstNames = [];
     let lastNames = [];
@@ -69,70 +77,71 @@ class Appointments extends Component {
       images.push(object.cust_img);
       dates.push(object.apt_date);
       types.push(object.apt_type);
+      return null;
     });
 
     let idColumn = ids.map((id, i) => (
-      <div className={dashTblCell} key={i}>
-        <button className={dashTblCell} type="text" value={id}>
-          Edit
-        </button>
-        <button className={dashTblCell} type="text" value={id}>
-          Delete
-        </button>
+      <div className={dashTblBtnCol} key={i}>
+        <i className={dashTblEditBtn} value={id} />
+        <i className={dashTblDelBtn} value={id} />
       </div>
     ));
     let firstNamesColumns = firstNames.map((name, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{name}</textarea>
+        <input value={name} />
       </div>
     ));
     let lastNamesColumns = lastNames.map((name, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{name}</textarea>
+        <input value={name} />
       </div>
     ));
     let addressesColumns = addresses.map((address, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{address}</textarea>
+        <input value={address} />
       </div>
     ));
     let citiesColumns = cities.map((city, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{city}</textarea>
+        <input value={city} />
       </div>
     ));
     let statesColumns = states.map((state, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{state}</textarea>
+        <input value={state} />
       </div>
     ));
     let phonesColumns = phones.map((phone, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{phone}</textarea>
+        <input
+          value={phone}
+          onClick={e => this.handleSelector("selectedPhone", e.target.value)}
+        />
       </div>
     ));
     let emailsColumns = emails.map((email, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{email}</textarea>
+        <input
+          value={email}
+          onClick={e => this.handleSelector("selectedEmail", e.target.value)}
+        />
       </div>
     ));
     let imagesColumns = images.map((img, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{img}</textarea>
+        <input value={img} />
       </div>
     ));
     let datesColumns = dates.map((date, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{date}</textarea>
+        <input value={date} />
       </div>
     ));
     let typesColumns = types.map((type, i) => (
       <div className={dashTblCell} key={i}>
-        <textarea>{type}</textarea>
+        <input value={type} />
       </div>
     ));
-
-    console.log(ids, firstNames, lastNames);
 
     return (
       <div className={dashApts}>
@@ -152,7 +161,9 @@ class Appointments extends Component {
         </div>
         <div className={dashTbl}>
           <div className="apt-tbl-column">
-            <div className={dashTblHeader}>ID BUTTON</div>
+            <div className={dashTblHeader}>
+              <i className={dashTblNewBtn} />
+            </div>
             {idColumn}
           </div>
 

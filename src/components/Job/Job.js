@@ -20,7 +20,7 @@ class Job extends Component {
           </div>
         </div>
         <div className="job-table">
-          <JobTable />
+          {/* <JobTable /> */}
         </div>
       </div>
     );
