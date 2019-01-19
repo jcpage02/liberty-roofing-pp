@@ -8,7 +8,17 @@ module.exports = {
         res.status(200).send(aptArray)
     },
 
-    createApt: (req, res) => {
-        const {} = req.body
+    createApt: async (req, res) => {
+        const {firstName, lastName, address, city, state, phone, email, images, date, type} = req.body
+        const db = req.app.get('db')
+        const aptArray = await db.appointment.add_appointment({firstName, lastName, address, city, state, phone, email, images, date, type})
+        res.status(200).send(aptArray)
+    },
+
+    deleteApt: async (req, res) => {
+        const {id} = req.params
+        const db = req.app.get('db')
+        await db.appointment.delete_appointment({id})
+        res.status(200).send('Appointment deleted')
     }
 }

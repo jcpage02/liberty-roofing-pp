@@ -64,7 +64,34 @@
 }
 
 .fa-expand:hover {
-  color: #f8e055;
+  color: #2196f3;
+}
+.fa-expand:active {
+  color: #1c7dcc;
+}
+.fa-plus-square:hover {
+  color: #2196f3;
+}
+.fa-plus-square:active {
+  color: #1c7dcc;
+}
+.fa-trash-alt:hover {
+  color: #2196f3;
+}
+.fa-trash-alt:active {
+  color: #1c7dcc;
+}
+.fa-edit:hover {
+  color: #2196f3;
+}
+.fa-edit:active {
+  color: #1c7dcc;
+}
+.fa-save:hover {
+  color: #2196f3;
+}
+.fa-save:active {
+  color: #1c7dcc;
 }
 
 .dash-tbl {
@@ -123,6 +150,7 @@
   height: auto;
   font-size: 11px;
   padding: 3px;
+  transition: .3s;
 }
 .apt-tbl-cell {
   width: auto;
@@ -143,10 +171,9 @@
 .edit-delete {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
-  margin-bottom: -13px;
+  align-items: center;
   width: 80px;
-  height: 40px;
+  height: 35px;
 }
 
 .dash-msgr {

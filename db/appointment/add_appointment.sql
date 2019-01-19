@@ -1,13 +1,28 @@
 insert into appointment
 (
-    cust_id,
-    apt_date,
+    cust_first,   
+    cust_last,   
+    cust_address,  
+    cust_city,   
+    cust_state,   
+    cust_phone,   
+    cust_email,  
+    cust_img,   
+    apt_date,   
     apt_type
-)
-
+)      
 values 
 (
-    1,
-    '01-29-2019',
-    'roof'
+    ${firstName},
+    ${lastName},
+    ${address},
+    ${city},
+    ${state},
+    ${phone},
+    ${email},
+    ${images},
+    ${date},
+    ${type}
 )
+
+returning *

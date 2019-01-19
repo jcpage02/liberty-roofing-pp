@@ -35,6 +35,7 @@ app.get('/send-email', msgCtrl.sendNodeMailer)
 //////// APPOINTMENT //////////
 app.get('/api/apts', aptCtrl.getApts)
 app.post('/api/apts', aptCtrl.createApt)
+app.delete('/api/apts/:id', aptCtrl.deleteApt)
 
 //////////// REP //////////////
 app.get('/api/reps')
