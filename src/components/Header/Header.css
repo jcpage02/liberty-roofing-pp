@@ -29,7 +29,9 @@
 .header-home-navbar {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 70vw;
+  margin-bottom: -10px;
 }
 
 .header-navbar {
@@ -39,12 +41,15 @@
 .header-ul {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   list-style-type: none;
   margin-right: 20px;
   width: 100%;
 }
 
 .header-li {
+  font-size: 16px;
   padding-right: 14px;
   padding-left: 14px;
+  color: white;
 }

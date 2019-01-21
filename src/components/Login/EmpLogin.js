@@ -4,11 +4,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Button from "@material-ui/core/Button";
 
-class Login extends Component {
+class EmpLogin extends Component {
   state = {
     username: "",
-    password: "",
-    isAdmin: false
+    password: ""
   };
 
   handleChange = (prop, e) => {
@@ -20,10 +19,10 @@ class Login extends Component {
   login = async () => {
     const { username, password } = this.state;
     await axios
-      .post("/api/login", { username, password })
+      .post("/cust/login", { username, password })
       .then(res => {
         if (res.data.loggedIn) {
-          this.props.history.push("/admin/dash");
+          this.props.history.push("/customer/dash");
         }
       })
       .catch(err =>
@@ -44,10 +43,10 @@ class Login extends Component {
 
     return (
       <div className="Login">
-        <div className="login-background" />
+        <div className="login-emp-background" />
         <div className="login-container">
           <div className="login-box">
-            <h5>Welcome!</h5>
+            <h5>Employee Login</h5>
             <div className="login-selectors">
               <h5>Username:</h5>
               <input
@@ -72,4 +71,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default EmpLogin;

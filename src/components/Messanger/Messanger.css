@@ -14,7 +14,7 @@
   width: 100%;
   margin: 0 130px;
 }
-h4 {
+.msgr-hdr h4 {
   margin-left: 12%;
   width: 100px;
   color: white;
@@ -34,7 +34,7 @@ h4 {
 }
 
 .Messanger button {
-  width: 90;
+  width: 90px;
   height: 25px;
   border: 0;
   border-style: none;

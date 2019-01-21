@@ -27,5 +27,16 @@ module.exports = {
     } else {
       res.status(401).send("Please log in.");
     }
+  },
+
+  custLogin: async (req, res) => {
+    const { username, password } = req.body;
+    const db = req.app.get('db');
+    const custArray = await db.rep.get_cust({ username });
+    if (!userArray[0]) {
+      return res.status(200).send({ message: "Incorrect Username" });
+    }
+    const {cust_first, cust_hash, cust_username} = custArray[0]
+    
   }
 }

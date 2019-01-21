@@ -3,11 +3,11 @@
 
 .App {
   text-align: center;
-  background-color: #E0E0E0;
   font-family: 'Lato', sans-serif;
   letter-spacing: .7px;
   font-weight: 500;
 }
+
 
 html span {
   font-size: 14px;

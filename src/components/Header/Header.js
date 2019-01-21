@@ -31,7 +31,7 @@ class Header extends Component {
               <Link to="">
                 <li className="header-li">Contact Us</li>
               </Link>
-              <Link to="/employee/login">
+              <Link to="/customer/login">
                 <li className="header-li">Login</li>
               </Link>
             </ul>
