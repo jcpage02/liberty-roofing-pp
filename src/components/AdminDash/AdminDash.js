@@ -1,27 +1,29 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
 import "./AdminDash.css";
-import Job from '../Job/Job'
-import Appointments from '../Appointment/Appoinment'
-import Chart from "./Chart";
+import Job from "../Job/Job";
+import Appointments from "../Appointment/Appoinment";
 
 class AdminDash extends Component {
   render() {
     return (
       <div className="AdminDash">
-        <Header />
-        <div className="dash-body1">
-          <div className="dash-body1-left">
-            <Job path='dash'/>
-            <Appointments className="dash-apts" />
+        <div className="admin-dash-background" />
+        <div className="admin-dash-container">
+          <div className="admin-dash-header">
+            <h4>Admin Dashboard</h4>
+            <a href="http://localhost:3000/#/employee/login">
+              <i class="fas fa-sign-out-alt fa-2x" />
+            </a>
           </div>
-          <div className="dash-body1-right" />
-        </div>
-        <div className="dash-body2">
-          <div className="dash-chart">
-            <Chart />
+          <div className='dash-body'>
+            <div className="dash-body1">
+              <div className="dash-body1-left">
+                <Job path="dash" />
+                <Appointments className="dash-apts" />
+              </div>
+              <div className="dash-body1-right" />
+            </div>
           </div>
-          <div className="dash-goals">Mini Board</div>
         </div>
       </div>
     );

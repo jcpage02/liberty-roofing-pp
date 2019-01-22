@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./CustDash.css";
 import Checkout from "../Payment/Checkout";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class CustDash extends Component {
   state = {
@@ -21,9 +22,9 @@ class CustDash extends Component {
         <div className="cust-container">
           <div className="cust-dash-header">
             <h4>Customer Dashboard</h4>
-            <Link to='/'>
+            <a href="http://localhost:3000/#/">
               <i class="fas fa-sign-out-alt fa-2x" />
-            </Link>
+            </a>
           </div>
           <div className="cust-body">
             <div className="cust-left">

@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import "./Login.css";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Button from "@material-ui/core/Button";
 
-class Login extends Component {
+class CustLogin extends Component {
   state = {
     username: "",
-    password: "",
-    isAdmin: false
+    password: ""
   };
 
   handleChange = (prop, e) => {
@@ -20,10 +18,10 @@ class Login extends Component {
   login = async () => {
     const { username, password } = this.state;
     await axios
-      .post("/api/login", { username, password })
+      .post("/cust/login", { username, password })
       .then(res => {
         if (res.data.loggedIn) {
-          this.props.history.push("/admin/dash");
+          this.props.history.push("/customer/dash");
         }
       })
       .catch(err =>
@@ -37,11 +35,6 @@ class Login extends Component {
   };
 
   render() {
-    const buttonStyle = {
-      background: "#2B2B2B",
-      color: "white"
-    };
-
     return (
       <div className="Login">
         <div className="login-background" />
@@ -72,4 +65,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default CustLogin;

@@ -243,7 +243,8 @@ class Appointments extends Component {
         <input value={type} />
       </div>
     ));
-console.log(this.state)
+
+
     return (
       <div className={dashApts}>
         <div className={dashAptsHdr}>

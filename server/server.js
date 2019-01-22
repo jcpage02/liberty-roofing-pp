@@ -32,6 +32,14 @@ app.use(cors());
 
 app.post("/api/login", authCtrl.login);
 app.post('/cust/login', authCtrl.custLogin)
+app.get('/emp/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('http://localhost:3000/#/employee/login')
+})
+app.get('/cust/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('http://localhost:3000/#/')
+})
 app.post("/charge", async (req, res) => {
     const {amount, description, currency, token} = req.body
   try {
