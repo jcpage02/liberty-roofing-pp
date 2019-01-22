@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Job.css";
 import { Link } from "react-router-dom";
-// import axios from "axios";
-import JobTable from "../Tables/JobTable";
 
 class Job extends Component {
 
@@ -20,7 +18,6 @@ class Job extends Component {
           </div>
         </div>
         <div className="job-table">
-          {/* <JobTable /> */}
         </div>
       </div>
     );

@@ -66,6 +66,7 @@ app.get("/send-email", msgCtrl.sendNodeMailer);
 app.get("/api/apts", aptCtrl.getApts);
 app.post("/api/apts", aptCtrl.createApt);
 app.delete("/api/apts/:id", aptCtrl.deleteApt);
+app.put('/api/apts/:id', aptCtrl.updateApt)
 
 //////////// REP //////////////
 app.get("/api/reps");

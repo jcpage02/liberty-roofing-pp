@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { HashRouter } from "react-router-dom";
-import { Elements, StripeProvider} from "react-stripe-elements";
 
 
 ReactDOM.render(

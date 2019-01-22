@@ -4,6 +4,7 @@ import "react-day-picker/lib/style.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Scheduler.css";
 import Carousel from "./Carousel";
+import moment from "moment"
 
 class Scheduler extends Component {
   state = {
@@ -11,6 +12,7 @@ class Scheduler extends Component {
   };
 
   handleDayClick = (day, { selected }) => {
+    // let day = moment(day).format('MM/DD/YYYY')
     const { selectedDays } = this.state;
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -23,32 +25,36 @@ class Scheduler extends Component {
     this.setState({ selectedDays });
   };
 
+  submitDays = () => {
+    const {selectedDay} = this.state
+    
+  }
+
   render() {
-    // let todayObj = new Date();
-    // let day = todayObj.getDate();
-    // let month = todayObj.getMonth() + 1;
-    // let year = todayObj.getFullYear();
+    console.log(this.state.selectedDays)
+
+    
 
     return (
       <div className="Scheduler">
         <div className="scheduler">
-          <h4>FREE ESTIMATE!</h4>
+          <h4>SCHEDULE AN APPOINTMENT TODAY!</h4>
           <h5>Select the dates you are available.</h5>
           <div className="mini-cal">
-            <i class="fas fa-chevron-circle-left fa-2x" />
+            <i className="fas fa-chevron-circle-left fa-2x" />
             <div className="date-picker">
               <DayPicker
                 selectedDays={this.state.selectedDays}
                 onDayClick={this.handleDayClick}
-                //   initialMonth={new Date(2017, 3)}
                 disabledDays={[{ daysOfWeek: [0, 7] }]}
               />
             </div>
-            <i class="fas fa-chevron-circle-right fa-2x" />
+            <i className="fas fa-chevron-circle-right fa-2x" onClick={() => this.submitDays()}/>
           </div>
-        </div>
+        </div>  
         <div className="Scheduler-carousel">
-          <Carousel />
+          {/* <img src="https://bealingroofing.com/wp-content/uploads/2018/01/HomeImage1.jpg" /> */}
+          {/* <Carousel /> */}
         </div>
       </div>
     );

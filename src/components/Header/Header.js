@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import logo from '../../LibertyRoofingLogo.png'
 
 class Header extends Component {
   state = {};
@@ -11,7 +12,9 @@ class Header extends Component {
     return (
       <div className="Header">
         <div className="header-header">
-          <logo className={home === "home" ? "header-home-logo" : "header-logo"}>LIBERTY ROOFING</logo>
+          <div className={home === "home" ? "header-home-logo" : "header-logo"}>
+            <img src={logo}/>
+          </div>
           <div
             className={home === "home" ? "header-home-navbar" : "header-navbar"}
           >

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./CustDash.css";
 import Checkout from "../Payment/Checkout";
-import { Link } from "react-router-dom";
-import axios from "axios";
+// import { Link } from "react-router-dom";
+// import axios from "axios";
 
 class CustDash extends Component {
   state = {
@@ -12,7 +12,7 @@ class CustDash extends Component {
   };
 
   render() {
-    const { totalDue, minDue, paymentsMade } = this.state;
+    const { minDue, paymentsMade } = this.state;
 
     return (
       <div className="CustDash">

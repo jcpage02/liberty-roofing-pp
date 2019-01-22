@@ -10,6 +10,7 @@ import Appointment from './components/Appointment/Appoinment'
 import Goal from './components/Goal/Goal'
 import CustDash from './components/CustDash/CustDash'
 import CustLogin from './components/Login/CustLogin'
+import Calendar from './components/Home/Scheduler/Calendar'
 
 export default (
     <Switch>
@@ -22,5 +23,6 @@ export default (
         <Route path='/admin/reps' component={Rep} />
         <Route path='/admin/appointments' component={Appointment} />
         <Route path='/admin/goals' component={Goal} />
+        <Route path='/calendar' component={Calendar} />
     </Switch>
 )
