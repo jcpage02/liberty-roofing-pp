@@ -3,8 +3,6 @@ import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Scheduler.css";
-import Carousel from "./Carousel";
-import moment from "moment"
 
 class Scheduler extends Component {
   state = {
@@ -31,7 +29,7 @@ class Scheduler extends Component {
   }
 
   render() {
-    console.log(this.state.selectedDays)
+    // console.log(this.state.selectedDays)
 
     
 

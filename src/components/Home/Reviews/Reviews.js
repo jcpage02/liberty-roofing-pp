@@ -6,11 +6,11 @@ const Reviews = () => {
       <div className="review-header">
         <h4>Sherri Stechmann</h4>
         <div className="review-stars">
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
         </div>
       </div>
       <p>
@@ -24,11 +24,11 @@ const Reviews = () => {
       <div className="review-header">
         <h4>Jeanene Rogers</h4>
         <div className="review-stars">
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
         </div>
       </div>
       <p>

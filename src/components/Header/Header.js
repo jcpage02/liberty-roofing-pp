@@ -13,7 +13,7 @@ class Header extends Component {
       <div className="Header">
         <div className="header-header">
           <div className={home === "home" ? "header-home-logo" : "header-logo"}>
-            <img src={logo}/>
+            <img src={logo} alt='logo'/>
           </div>
           <div
             className={home === "home" ? "header-home-navbar" : "header-navbar"}
