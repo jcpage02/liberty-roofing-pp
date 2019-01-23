@@ -4,7 +4,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  /* background-color: #3f3f3f; */
+  background-color: #DDDDDD;
 }
 
 .login-container {
@@ -25,7 +25,7 @@
   height: 350px;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #00000090;
+  background-color: #26466FEE;
   border-radius: 10px;
   color: #e0e0e0;
   font-weight: 600;
@@ -76,11 +76,11 @@
   position: fixed;
   width: 105vw;
   height: 105vh;
-  background-image: url("https://images3.alphacoders.com/109/109917.jpg");
+  /* background-image: url("https://images3.alphacoders.com/109/109917.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  filter: blur(8px);
+  background-position: center center; */
+  /* filter: blur(8px); */
   z-index: 1;
 }
 
@@ -88,11 +88,6 @@
   position: fixed;
   width: 105vw;
   height: 105vh;
-  background-image: url("https://holencik.com/wp-content/uploads/2015/09/Roofing-Header-Image.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  filter: blur(8px);
   z-index: 1;
 }
 

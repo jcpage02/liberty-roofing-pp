@@ -46,11 +46,10 @@ module.exports = {
 
   updateApt: async (req, res) => {
     const { id } = req.params;
-    const {first, last, address, city, state, phone, email, date, type} = req.body;
+    const {cust_first, cust_last, cust_address, cust_city, cust_state, cust_phone, cust_email, apt_date, apt_type} = req.body;
     const db = req.app.get("db");
     await db.appointment.update_appointment(
-      { id },
-      { first, last, address, city, state, phone, email, date, type }
+      {cust_first, cust_last, cust_address, cust_city, cust_state, cust_phone, cust_email, apt_date, apt_type, id}
     );
   }
 };

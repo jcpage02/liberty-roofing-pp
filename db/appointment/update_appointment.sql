@@ -1,17 +1,12 @@
 update appointment
-set cust_first = ${first},
-cust_last = ${last},
-cust_address = ${address},
-cust_city = ${city},
-cust_state = ${state},
-cust_phone = ${phone},
-cust_email = ${email},
-apt_date = ${date},
-apt_type = ${type}
+set cust_first = ${cust_first},
+cust_last = ${cust_last},
+cust_address = ${cust_address},
+cust_city = ${cust_city},
+cust_state = ${cust_state},
+cust_phone = ${cust_phone},
+cust_email = ${cust_email},
+apt_date = ${apt_date},
+apt_type = ${apt_type}
 
 where apt_id = ${id}
-
-
-
-
-

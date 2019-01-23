@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Reviews = () => {
   return (
     <div className="home-reviews">
+      <h3>CHECKOUT REVIEWS FROM PAST CUSTOMERS!</h3>
       <div className="review-header">
         <h4>Sherri Stechmann</h4>
         <div className="review-stars">

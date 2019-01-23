@@ -54,8 +54,10 @@ class Appointments extends Component {
   };
 
   handleEditBtn = () => {
-    !this.state.edit ? this.setState({edit: true}) : this.setState({edit: false})
-  }
+    !this.state.edit
+      ? this.setState({ edit: true })
+      : this.setState({ edit: false });
+  };
 
   addAppointment = () => {
     const {
@@ -100,30 +102,29 @@ class Appointments extends Component {
   };
 
   updateAppointment = (arrId, aptId) => {
-    const { appointments, edit } = this.state;
-    const id = aptId;
-    const first = appointments[arrId].first;
-    const last = appointments[arrId].last;
-    const address = appointments[arrId].address;
-    const city = appointments[arrId].city;
-    const state = appointments[arrId].state;
-    const phone = appointments[arrId].phone;
-    const email = appointments[arrId].email;
-    const date = appointments[arrId].date;
-    const type = appointments[arrId].type;
-    if(!edit) {
-      this.setState({edit: true})
-    }
+    const { firstName, lastName, address, city, state, phone, email, date, type} = this.state;
+    const copyArr = this.state.appointments[arrId]
+    if(firstName) {copyArr.cust_first = firstName} 
+    if(lastName) {copyArr.cust_last = lastName}
+    if(address) {copyArr.cust_address = address}
+    if(city) {copyArr.cust_city = city}
+    if(state) {copyArr.cust_state = state}
+    if(phone) {copyArr.cust_phone = phone}
+    if(email) {copyArr.cust_email = email}
+    if(date) {copyArr.apt_date = date}
+    if(type) {copyArr.apt_type = type}
+    const id = aptId
+    const {cust_first, cust_last, cust_address, cust_city, cust_state, cust_phone, cust_email, apt_date, apt_type} = copyArr
     axios.put(`/api/apts/${id}`, {
-      first,
-      last,
-      address,
-      city,
-      state,
-      phone,
-      email,
-      date,
-      type
+      cust_first,
+      cust_last,
+      cust_address,
+      cust_city,
+      cust_state,
+      cust_phone,
+      cust_email,
+      apt_date,
+      apt_type
     });
   };
 
@@ -148,7 +149,11 @@ class Appointments extends Component {
     const dashTblNewBtn =
       pathname === "/admin/dash" ? "" : "far fa-plus-square fa-lg";
     const dashTblEditBtn =
-      pathname === "/admin/dash" ? "" : this.state.edit ? '' : "fas fa-edit fa-lg";
+      pathname === "/admin/dash"
+        ? ""
+        : this.state.edit
+        ? ""
+        : "fas fa-edit fa-lg";
     const dashTblDelBtn =
       pathname === "/admin/dash" ? "" : "far fa-trash-alt fa-lg";
     const dashBackground =
@@ -157,8 +162,8 @@ class Appointments extends Component {
       pathname === "/admin/dash" ? "dash-apt-container" : "apt-container";
     const dashFirstTblCol =
       pathname === "/admin/dash" ? "dash-tbl-column" : "apt-tbl-column";
-    const saveEditBtn = this.state.edit ? "far fa-save fa-lg" : ''
-    const editable = this.state.edit ? true : false
+    const saveEditBtn = this.state.edit ? "far fa-save fa-lg" : "";
+    const editable = this.state.edit ? true : false;
 
     let ids = [];
     let firstNames = [];
@@ -319,58 +324,202 @@ class Appointments extends Component {
     ));
     let firstNamesColumns = firstNames.map((name, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={name} />
+        {this.state.edit ? (
+          <input
+            placeholder={name}
+            onChange={e => {
+              this.handleChange("firstName", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={name}
+            onChange={e => {
+              this.handleChange("firstName", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let lastNamesColumns = lastNames.map((name, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={name} />
+        {this.state.edit ? (
+          <input
+            placeholder={name}
+            onChange={e => {
+              this.handleChange("lastName", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={name}
+            onChange={e => {
+              this.handleChange("lastName", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let addressesColumns = addresses.map((address, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={address} />
+        {this.state.edit ? (
+          <input
+            placeholder={address}
+            onChange={e => {
+              this.handleChange("address", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={address}
+            onChange={e => {
+              this.handleChange("address", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let citiesColumns = cities.map((city, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={city} />
+        {this.state.edit ? (
+          <input
+            placeholder={city}
+            onChange={e => {
+              this.handleChange("city", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={city}
+            onChange={e => {
+              this.handleChange("city", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let statesColumns = states.map((state, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={state} />
+        {this.state.edit ? (
+          <input
+            placeholder={state}
+            max="2"
+            onChange={e => {
+              this.handleChange("state", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={state}
+            max="2"
+            onChange={e => {
+              this.handleChange("state", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let phonesColumns = phones.map((phone, i) => (
       <div className={dashTblCell} key={i}>
-        <input
-          value={phone}
-          onClick={e => this.handleSelector("selectedPhone", e.target.value)}
-        />
+        {this.state.edit ? (
+          <input
+            type="number"
+            placeholder={phone}
+            onClick={e => this.handleSelector("selectedPhone", e.target.value)}
+            onChange={e => {
+              this.handleChange("phone", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            type="number"
+            value={phone}
+            onClick={e => this.handleSelector("selectedPhone", e.target.value)}
+            onChange={e => {
+              this.handleChange("phone", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let emailsColumns = emails.map((email, i) => (
       <div className={dashTblCell} key={i}>
-        <input
-          value={email}
-          onClick={e => this.handleSelector("selectedEmail", e.target.value)}
-        />
+        {this.state.edit ? (
+          <input
+            type="email"
+            placeholder={email}
+            onClick={e => this.handleSelector("selectedEmail", e.target.value)}
+            onChange={e => {
+              this.handleChange("email", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            type="email"
+            value={email}
+            onClick={e => this.handleSelector("selectedEmail", e.target.value)}
+            onChange={e => {
+              this.handleChange("email", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let imagesColumns = images.map((img, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={img} />
+        {this.state.edit ? (
+          <input
+            placeholder={img}
+            onChange={e => {
+              this.handleChange("images", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={img}
+            onChange={e => {
+              this.handleChange("images", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let datesColumns = dates.map((date, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={date} />
+        {this.state.edit ? (
+          <input
+            placeholder={date}
+            onChange={e => {
+              this.handleChange("date", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={date}
+            onChange={e => {
+              this.handleChange("date", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
     let typesColumns = types.map((type, i) => (
       <div className={dashTblCell} key={i}>
-        <input value={type} />
+        {this.state.edit ? (
+          <input
+            placeholder={type}
+            onChange={e => {
+              this.handleChange("type", e.target.value);
+            }}
+          />
+        ) : (
+          <input
+            value={type}
+            onChange={e => {
+              this.handleChange("type", e.target.value);
+            }}
+          />
+        )}
       </div>
     ));
 
