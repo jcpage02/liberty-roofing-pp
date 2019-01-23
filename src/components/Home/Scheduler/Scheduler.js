@@ -3,10 +3,13 @@ import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Scheduler.css";
+import Form from "./Form";
+import TypeForm from "./TypeForm";
 
 class Scheduler extends Component {
   state = {
-    selectedDays: []
+    selectedDays: [],
+    counter: 1
   };
 
   handleDayClick = (day, { selected }) => {
@@ -24,14 +27,37 @@ class Scheduler extends Component {
   };
 
   submitDays = () => {
-    const {selectedDay} = this.state
-    
-  }
+    const { selectedDays } = this.state;
+  };
+
+  changeScheduler = direction => {
+    const { counter } = this.state;
+    let newCount = counter;
+    if (direction === "next") {
+      newCount++;
+      if (newCount > 3) {
+        newCount = 3;
+      }
+      this.setState({ counter: newCount });
+    } else {
+      if (direction === "back") {
+        newCount--;
+        if (newCount < 1) {
+          newCount = 1;
+        }
+        this.setState({ counter: newCount });
+      }
+    }
+  };
 
   render() {
-    // console.log(this.state.selectedDays)
-
-    
+    console.log(this.state);
+    const { counter } = this.state;
+    const view = counter === 1 ? "date-picker" 
+      : counter === 2 ? "Form" 
+      : counter === 3 ? 'TypeForm'
+      : null;
+      console.log(view)
 
     return (
       <div className="Scheduler">
@@ -39,21 +65,26 @@ class Scheduler extends Component {
           <h4>SCHEDULE AN APPOINTMENT TODAY!</h4>
           <h5>Select the dates you are available.</h5>
           <div className="mini-cal">
-            <i className="fas fa-chevron-circle-left fa-2x" />
-            <div className="date-picker">
+            <i
+              className="fas fa-chevron-circle-left fa-2x"
+              onClick={() => this.changeScheduler("back")}
+            />
+            <div className={view}>
               <DayPicker
                 selectedDays={this.state.selectedDays}
                 onDayClick={this.handleDayClick}
                 disabledDays={[{ daysOfWeek: [0, 7] }]}
               />
             </div>
-            <i className="fas fa-chevron-circle-right fa-2x" onClick={() => this.submitDays()}/>
+            <Form view={view}/>
+            <TypeForm view={view}/>
+            <i
+              className="fas fa-chevron-circle-right fa-2x"
+              onClick={() => this.changeScheduler("next")}
+            />
           </div>
-        </div>  
-        <div className="Scheduler-carousel">
-          {/* <img src="https://bealingroofing.com/wp-content/uploads/2018/01/HomeImage1.jpg" /> */}
-          {/* <Carousel /> */}
         </div>
+        <div className="Scheduler-carousel" />
       </div>
     );
   }

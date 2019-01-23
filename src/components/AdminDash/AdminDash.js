@@ -7,12 +7,11 @@ class AdminDash extends Component {
   render() {
     return (
       <div className="AdminDash">
-        <div className="admin-dash-background" />
         <div className="admin-dash-container">
           <div className="admin-dash-header">
             <h4>Admin Dashboard</h4>
             <a href="http://localhost:3000/#/employee/login">
-              <i class="fas fa-sign-out-alt fa-2x" />
+              <i className="fas fa-sign-out-alt fa-2x" />
             </a>
           </div>
           <div className='dash-body'>

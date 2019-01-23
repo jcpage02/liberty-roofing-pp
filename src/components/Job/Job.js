@@ -13,7 +13,7 @@ class Job extends Component {
           <h5 className="job-title">Jobs and Customers</h5>
           <div className="job-expand">
             <Link to={path === "dash" ? "/admin/jobs" : "/admin/dash"}>
-              <i class="fas fa-expand fa-lg" />
+              <i className="fas fa-expand fa-lg" />
             </Link>
           </div>
         </div>

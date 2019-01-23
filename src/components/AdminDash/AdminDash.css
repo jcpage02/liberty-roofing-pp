@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.admin-dash-background {
+/* .admin-dash-background {
   position: fixed;
   width: 105vw;
   height: 105vh;
@@ -16,12 +17,11 @@
   background-position: center center;
   filter: blur(8px);
   z-index: 1;
-}
+} */
 
 .admin-dash-container {
     width: 100%;
     height: 100%;
-    z-index: 2;
 }
 .admin-dash-header {
   display: flex;
@@ -37,7 +37,7 @@
   width: 400px;
   font-size: 30px;
   font-weight: 700;
-  color: #ffffff;
+  color: #3f3f3f;
 }
 
 .fa-sign-out-alt {
