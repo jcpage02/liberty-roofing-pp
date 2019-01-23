@@ -1,0 +1,27 @@
+@import '../../../Styles.scss';
+
+.Thanks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 290px;
+    height: 280px;
+    background-color: $mainWhite;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 3px 3px 20px black;
+  }
+  .Thanks-none {
+      display: none;
+  }
+  .thanks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-bottom: 20px;
+    color: $mainBlue;
+    font-weight: 700;
+  }
+  

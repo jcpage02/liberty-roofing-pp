@@ -2,14 +2,26 @@ import React, { Component } from "react";
 import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import "react-datepicker/dist/react-datepicker.css";
-import "./Scheduler.css";
+import "./Scheduler.scss";
 import Form from "./Form";
 import TypeForm from "./TypeForm";
+import Thanks from "./Thanks";
+import axios from "axios";
 
 class Scheduler extends Component {
   state = {
     selectedDays: [],
-    counter: 1
+    counter: 1,
+    firstName: "",
+    lastName: "",
+    address: "",
+    city: "",
+    state: "",
+    phone1: "",
+    phone2: "",
+    phone3: "",
+    email: "",
+    type: []
   };
 
   handleDayClick = (day, { selected }) => {
@@ -26,8 +38,20 @@ class Scheduler extends Component {
     this.setState({ selectedDays });
   };
 
-  submitDays = () => {
+  handleInfoChange = (prop, e) => {
+    this.setState({ [prop]: e });
+  };
+
+  handleTypeChange = e => {
+    let newType = [...this.state.type];
+    newType.push(e);
+    this.setState({ type: newType });
+  };
+
+  submitApt = () => {
     const { selectedDays } = this.state;
+    this.setState({ counter: 4 });
+    
   };
 
   changeScheduler = direction => {
@@ -51,14 +75,15 @@ class Scheduler extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.counter);
     const { counter } = this.state;
-    const view = counter === 1 ? "date-picker" 
-      : counter === 2 ? "Form" 
-      : counter === 3 ? 'TypeForm'
-      : null;
-      console.log(view)
-
+    const view = counter === 1 ? "date-picker" : "date-picker-none";
+    const leftBtn =
+      counter === 1 || counter === 4 ? "fa-chevron-circle-left-none" : "fa-chevron-circle-left";
+    const rightBtn =
+      counter >= 3
+        ? "fa-chevron-circle-right-none"
+        : "fa-chevron-circle-right";
     return (
       <div className="Scheduler">
         <div className="scheduler">
@@ -66,7 +91,7 @@ class Scheduler extends Component {
           <h5>Select the dates you are available.</h5>
           <div className="mini-cal">
             <i
-              className="fas fa-chevron-circle-left fa-2x"
+              className={`fas ${leftBtn} fa-2x`}
               onClick={() => this.changeScheduler("back")}
             />
             <div className={view}>
@@ -76,10 +101,15 @@ class Scheduler extends Component {
                 disabledDays={[{ daysOfWeek: [0, 7] }]}
               />
             </div>
-            <Form view={view}/>
-            <TypeForm view={view}/>
+            <Form counter={counter} infoChange={this.handleInfoChange} />
+            <TypeForm
+              counter={counter}
+              typeChange={this.handleTypeChange}
+              submitApt={this.submitApt}
+            />
+            <Thanks counter={counter} />
             <i
-              className="fas fa-chevron-circle-right fa-2x"
+              className={`fas ${rightBtn} fa-2x`}
               onClick={() => this.changeScheduler("next")}
             />
           </div>
