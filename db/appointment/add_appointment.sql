@@ -7,7 +7,6 @@ insert into appointment
     cust_state,   
     cust_phone,   
     cust_email,  
-    cust_img,   
     apt_date,   
     apt_type
 )      
@@ -20,7 +19,6 @@ values
     ${state},
     ${phone},
     ${email},
-    ${images},
     ${date},
     ${type}
 )

@@ -1,3 +1,5 @@
+@import "../../Styles.scss";
+
 .AdminDash {
     display: flex;
     justify-content: center;
@@ -6,18 +8,6 @@
     height: 100%;
     overflow: hidden;
 }
-
-/* .admin-dash-background {
-  position: fixed;
-  width: 105vw;
-  height: 105vh;
-  background-image: url("https://holencik.com/wp-content/uploads/2015/09/Roofing-Header-Image.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  filter: blur(8px);
-  z-index: 1;
-} */
 
 .admin-dash-container {
     width: 100%;

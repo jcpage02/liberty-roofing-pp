@@ -17,7 +17,6 @@ module.exports = {
       state,
       phone,
       email,
-      images,
       date,
       type
     } = req.body;
@@ -30,7 +29,6 @@ module.exports = {
       state,
       phone,
       email,
-      images,
       date,
       type
     });

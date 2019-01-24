@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./AdminDash.css";
+import "./AdminDash.scss";
 import Job from "../Job/Job";
 import Appointments from "../Appointment/Appoinment";
 
@@ -17,7 +17,7 @@ class AdminDash extends Component {
           <div className='dash-body'>
             <div className="dash-body1">
               <div className="dash-body1-left">
-                <Job path="dash" />
+                <Job />
                 <Appointments className="dash-apts" />
               </div>
               <div className="dash-body1-right" />

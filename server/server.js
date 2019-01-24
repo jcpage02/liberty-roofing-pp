@@ -68,12 +68,6 @@ app.post("/api/apts", aptCtrl.createApt);
 app.delete("/api/apts/:id", aptCtrl.deleteApt);
 app.put('/api/apts/:id', aptCtrl.updateApt)
 
-//////////// REP //////////////
-app.get("/api/reps");
-app.put("/api/reps");
-app.post("/api/reps");
-app.delete("/api/reps");
-
 massive(CONNECTION_STRING)
   .then(connection => {
     app.set("db", connection);

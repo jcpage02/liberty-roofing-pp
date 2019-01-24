@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./Appointment.css";
+import "./Appointment.scss";
 import Messanger from "./../Messanger/Messanger";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import logo from "../../LibertyRoofingLogo.png";
 
 class Appointments extends Component {
   state = {
@@ -102,19 +103,57 @@ class Appointments extends Component {
   };
 
   updateAppointment = (arrId, aptId) => {
-    const { firstName, lastName, address, city, state, phone, email, date, type} = this.state;
-    const copyArr = this.state.appointments[arrId]
-    if(firstName) {copyArr.cust_first = firstName} 
-    if(lastName) {copyArr.cust_last = lastName}
-    if(address) {copyArr.cust_address = address}
-    if(city) {copyArr.cust_city = city}
-    if(state) {copyArr.cust_state = state}
-    if(phone) {copyArr.cust_phone = phone}
-    if(email) {copyArr.cust_email = email}
-    if(date) {copyArr.apt_date = date}
-    if(type) {copyArr.apt_type = type}
-    const id = aptId
-    const {cust_first, cust_last, cust_address, cust_city, cust_state, cust_phone, cust_email, apt_date, apt_type} = copyArr
+    const {
+      firstName,
+      lastName,
+      address,
+      city,
+      state,
+      phone,
+      email,
+      date,
+      type
+    } = this.state;
+    const copyArr = this.state.appointments[arrId];
+    if (firstName) {
+      copyArr.cust_first = firstName;
+    }
+    if (lastName) {
+      copyArr.cust_last = lastName;
+    }
+    if (address) {
+      copyArr.cust_address = address;
+    }
+    if (city) {
+      copyArr.cust_city = city;
+    }
+    if (state) {
+      copyArr.cust_state = state;
+    }
+    if (phone) {
+      copyArr.cust_phone = phone;
+    }
+    if (email) {
+      copyArr.cust_email = email;
+    }
+    if (date) {
+      copyArr.apt_date = date;
+    }
+    if (type) {
+      copyArr.apt_type = type;
+    }
+    const id = aptId;
+    const {
+      cust_first,
+      cust_last,
+      cust_address,
+      cust_city,
+      cust_state,
+      cust_phone,
+      cust_email,
+      apt_date,
+      apt_type
+    } = copyArr;
     axios.put(`/api/apts/${id}`, {
       cust_first,
       cust_last,
@@ -162,6 +201,8 @@ class Appointments extends Component {
       pathname === "/admin/dash" ? "dash-apt-container" : "apt-container";
     const dashFirstTblCol =
       pathname === "/admin/dash" ? "dash-tbl-column" : "apt-tbl-column";
+    const dashLogo =
+      pathname === "/admin/dash" ? "dash-apt-header-logo" : "apt-header-logo";
     const saveEditBtn = this.state.edit ? "far fa-save fa-lg" : "";
     const editable = this.state.edit ? true : false;
 
@@ -267,16 +308,6 @@ class Appointments extends Component {
           placeholder="Email"
           onChange={e => {
             this.handleChange("email", e.target.value);
-          }}
-        />
-      </div>
-    ) : null;
-    let addImages = newAppointment ? (
-      <div className={dashTblCell}>
-        <input
-          placeholder="Images"
-          onChange={e => {
-            this.handleChange("images", e.target.value);
           }}
         />
       </div>
@@ -465,37 +496,18 @@ class Appointments extends Component {
         )}
       </div>
     ));
-    let imagesColumns = images.map((img, i) => (
-      <div className={dashTblCell} key={i}>
-        {this.state.edit ? (
-          <input
-            placeholder={img}
-            onChange={e => {
-              this.handleChange("images", e.target.value);
-            }}
-          />
-        ) : (
-          <input
-            value={img}
-            onChange={e => {
-              this.handleChange("images", e.target.value);
-            }}
-          />
-        )}
-      </div>
-    ));
     let datesColumns = dates.map((date, i) => (
       <div className={dashTblCell} key={i}>
         {this.state.edit ? (
           <input
-            placeholder={date}
+            placeholder={date.replace(",", ", ")}
             onChange={e => {
               this.handleChange("date", e.target.value);
             }}
           />
         ) : (
           <input
-            value={date}
+            value={date.replace(",", ", ")}
             onChange={e => {
               this.handleChange("date", e.target.value);
             }}
@@ -507,14 +519,14 @@ class Appointments extends Component {
       <div className={dashTblCell} key={i}>
         {this.state.edit ? (
           <input
-            placeholder={type}
+            placeholder={type.replace(",", ", ")}
             onChange={e => {
               this.handleChange("type", e.target.value);
             }}
           />
         ) : (
           <input
-            value={type}
+            value={type.replace(",", ", ")}
             onChange={e => {
               this.handleChange("type", e.target.value);
             }}
@@ -522,12 +534,17 @@ class Appointments extends Component {
         )}
       </div>
     ));
-
+///////////////////////////////////////////////////////////////////////////////////////////////
     return (
       <div className={dashApts}>
         <div className={dashBackground} />
         <div className={dashContainer}>
           <div className={dashAptsHdr}>
+            <Link to="/">
+              <div className={dashLogo}>
+                <img src={logo} />
+              </div>
+            </Link>
             <h5 className={dashAptsTitle}>Appointments</h5>
             <div className="apt-expand">
               <Link
@@ -588,11 +605,6 @@ class Appointments extends Component {
               <div className={dashTblHeader}>Email</div>
               {addEmail}
               {emailsColumns}
-            </div>
-            <div className="apt-tbl-column">
-              <div className={dashTblHeader}>Images</div>
-              {addImages}
-              {imagesColumns}
             </div>
             <div className="apt-tbl-column">
               <div className={dashTblHeader}>Date</div>

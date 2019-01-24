@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import "./Login.css";
+import "./Login.scss";
 import axios from "axios";
 import Swal from "sweetalert2";
+import logo from "../../LibertyRoofingLogo.png";
+import { Link } from "react-router-dom";
 
 class CustLogin extends Component {
   state = {
@@ -38,9 +40,14 @@ class CustLogin extends Component {
     return (
       <div className="Login">
         <div className="login-background" />
+        <Link to="/">
+          <div className="login-header">
+            <img src={logo} />
+          </div>
+        </Link>
         <div className="login-container">
           <div className="login-box">
-            <h5>Welcome!</h5>
+            <h5 className='login-welcome'>Welcome Back!</h5>
             <div className="login-selectors">
               <h5>Username:</h5>
               <input

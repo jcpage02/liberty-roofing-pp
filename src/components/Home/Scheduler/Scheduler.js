@@ -7,6 +7,7 @@ import Form from "./Form";
 import TypeForm from "./TypeForm";
 import Thanks from "./Thanks";
 import axios from "axios";
+import moment from "moment";
 
 class Scheduler extends Component {
   state = {
@@ -25,7 +26,6 @@ class Scheduler extends Component {
   };
 
   handleDayClick = (day, { selected }) => {
-    // let day = moment(day).format('MM/DD/YYYY')
     const { selectedDays } = this.state;
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -49,9 +49,33 @@ class Scheduler extends Component {
   };
 
   submitApt = () => {
-    const { selectedDays } = this.state;
     this.setState({ counter: 4 });
-    
+    const {
+      selectedDays,
+      firstName,
+      lastName,
+      address,
+      city,
+      state,
+      phone1,
+      phone2,
+      phone3,
+      email
+    } = this.state;
+    let phone = phone1 + phone2 + phone3;
+    let date = "";
+    selectedDays.map(day => {
+      let newDate = moment(day).format("MM/DD/YYYY");
+      date += `${newDate},`;
+    });
+    date = date.slice(0, -1);
+    let type = "";
+    this.state.type.map(t => {
+      type += `${t},`;
+    });
+    type = type.slice(0, -1);
+    console.log(type)
+    axios.post("/api/apts", { firstName, lastName, address, city, state, phone, email, date, type});
   };
 
   changeScheduler = direction => {
@@ -75,15 +99,14 @@ class Scheduler extends Component {
   };
 
   render() {
-    console.log(this.state.counter);
     const { counter } = this.state;
     const view = counter === 1 ? "date-picker" : "date-picker-none";
     const leftBtn =
-      counter === 1 || counter === 4 ? "fa-chevron-circle-left-none" : "fa-chevron-circle-left";
+      counter === 1 || counter === 4
+        ? "fa-chevron-circle-left-none"
+        : "fa-chevron-circle-left";
     const rightBtn =
-      counter >= 3
-        ? "fa-chevron-circle-right-none"
-        : "fa-chevron-circle-right";
+      counter >= 3 ? "fa-chevron-circle-right-none" : "fa-chevron-circle-right";
     return (
       <div className="Scheduler">
         <div className="scheduler">

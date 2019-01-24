@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./CustDash.css";
+import "./CustDash.scss";
 import Checkout from "../Payment/Checkout";
-// import { Link } from "react-router-dom";
+import logo from "../../LibertyRoofingLogo.png";
+import { Link } from "react-router-dom";
 // import axios from "axios";
 
 class CustDash extends Component {
@@ -16,14 +17,16 @@ class CustDash extends Component {
 
     return (
       <div className="CustDash">
-        <div className="cust-background">
-          <img src="https://images3.alphacoders.com/109/109917.jpg" alt="" />
-        </div>
         <div className="cust-container">
           <div className="cust-dash-header">
+            <Link to="/">
+              <div className='cust-header-logo'>
+                <img src={logo} />
+              </div>
+            </Link>
             <h4>Customer Dashboard</h4>
             <a href="http://localhost:3000/#/">
-              <i class="fas fa-sign-out-alt fa-2x" />
+              <i className="fas fa-sign-out-alt fa-2x" />
             </a>
           </div>
           <div className="cust-body">
