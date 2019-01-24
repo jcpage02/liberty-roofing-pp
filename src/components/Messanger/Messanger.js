@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Messanger.css";
+import "./Messanger.scss";
 import axios from "axios";
 
 class Messanger extends Component {

@@ -56,7 +56,7 @@ app.post("/charge", async (req, res) => {
 });
 
 //////////// JOB //////////////
-app.get("/api/active-jobs", jobCtrl.getActive);
+app.get("/active-jobs", jobCtrl.getActive);
 
 ////////// MESSAGES ///////////
 app.get("/send-msg", msgCtrl.sendTwilioMessage);

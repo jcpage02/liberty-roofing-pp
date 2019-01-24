@@ -38,7 +38,8 @@
   width: 100%;
   height: 100%;
   box-shadow: 1px 1px 5px black;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   background-color: #26466F;  
 }
 .apt-background {
@@ -78,7 +79,7 @@
 }
 .apt-header-logo img{
   height: 40px;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .dash-apt-title {
@@ -93,7 +94,7 @@
   width: 100%;
   margin: 0;
   margin-right: 70px;
-  font-size: 24px;
+  font-size: $headerFontSize;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -147,9 +148,9 @@
   align-content: center;
   overflow-x: scroll;
   width: 98%;
-  height: 82%;
-  border-radius: 10px;
+  height: 88%;
   margin-top: 10px;
+  margin-top: 4px;
 }
 
 .apt-tbl {
@@ -197,6 +198,7 @@
   height: auto;
   padding: 3px;
   transition: .3s;
+  font-weight: 500;
   color: #292929;
 }
 .apt-tbl-cell {

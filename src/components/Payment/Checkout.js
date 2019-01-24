@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import StripeCheckout from "react-stripe-checkout";
 
-// const { REACT_APP_STRIPE_PUBLISHABLE } = process.env;
 
 class Checkout2 extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   onToken = token => {
     fetch("/checkout", {
       method: "POST",

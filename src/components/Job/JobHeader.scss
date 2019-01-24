@@ -17,9 +17,18 @@
       display: flex;
       justify-content: flex-start;
       width: 300px;
+      margin-top: 10px;
+  }
+
+  .dash-job-title {
+      display: none;
   }
   .job-title {
       width: 300px;
+  }
+
+  .dash-job-expand {
+      display: none;
   }
   .job-expand {
       display: flex;
