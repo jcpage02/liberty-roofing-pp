@@ -25,7 +25,7 @@ const {
 const client = require("twilio")(ACCOUNT_SID, AUTH_TOKEN);
 const stripe = require("stripe")(REACT_APP_STRIPE_SECRET);
 
-app.use( express.static( `${__dirname}/../build` ) )
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(express.json());
 app.use(
