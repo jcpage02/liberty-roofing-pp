@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 .App {
   text-align: center;
-  background-color: #E0E0E0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #193B67;
   letter-spacing: .7px;
   font-weight: 500;
+  width: 100vw;
+  height: 100vh;
 }
+
 
 html span {
   font-size: 14px;

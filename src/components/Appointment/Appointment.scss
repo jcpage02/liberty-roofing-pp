@@ -1,0 +1,251 @@
+@import "../../Styles.scss";
+
+.Appointments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 250px;
+  font-weight: 700;
+}
+.Appointments-lg {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+}
+.apt-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  flex-wrap: wrap;
+  height: 100%;
+  z-index: 2;
+}
+.dash-apt-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 250px;
+  box-shadow: 1px 1px 5px black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #26466f;
+}
+.apt-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.dash-apt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0 10px;
+  padding-top: 5px;
+  color: $mainGrey;
+  background-color: #ffffff;
+  font-weight: 700;
+}
+.apt-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  margin-right: 20px;
+  color: #292929;
+  font-weight: 700;
+}
+
+.dash-apt-header-logo img {
+  display: none;
+}
+.apt-header-logo img {
+  height: 40px;
+  margin-left: 50px;
+}
+
+.dash-apt-title {
+  width: 100%;
+  padding-left: 35px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.apt-title {
+  color: #292929;
+  width: 100%;
+  margin: 0;
+  margin-right: 70px;
+  font-size: $headerFontSize;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.apt-expand {
+  width: 20px;
+  height: 20px;
+}
+.fa-expand {
+  color: #292929;
+}
+.fa-save {
+  padding-right: 6px;
+  padding-top: 1px;
+}
+
+.fa-expand:hover {
+  color: #2196f3;
+}
+.fa-expand:active {
+  color: #1c7dcc;
+}
+.fa-plus-square:hover {
+  color: #2196f3;
+}
+.fa-plus-square:active {
+  color: #1c7dcc;
+}
+.fa-trash-alt:hover {
+  color: #2196f3;
+}
+.fa-trash-alt:active {
+  color: #1c7dcc;
+}
+.fa-edit:hover {
+  color: #2196f3;
+}
+.fa-edit:active {
+  color: #1c7dcc;
+}
+.fa-save:hover {
+  color: #2196f3;
+}
+.fa-save:active {
+  color: #1c7dcc;
+}
+
+.dash-tbl {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  overflow-x: scroll;
+  width: 100%;
+  height: 216px;
+  margin-top: 10px;
+  margin-top: 4px;
+}
+
+.apt-tbl {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  overflow-x: scroll;
+  width: 900px;
+  height: 40vh;
+  border-radius: 10px;
+  box-sizing: content-box;
+  margin-left: 100px;
+  margin-right: 100px;
+  color: #292929;
+  background-color: $mainWhite;
+  box-shadow: 1px 1px 10px black;
+}
+.apt-tbl-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.dash-tbl-column {
+  width: 0;
+}
+
+.dash-apt-tbl-header {
+  color: #ffffff;
+  background-color: #26466f;
+  width: 100%;
+  padding: 5px;
+}
+
+.apt-tbl-header {
+  color: $mainWhite;
+  background-color: $mainBlue;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+}
+
+.dash-apt-tbl-cell {
+  width: auto;
+  height: auto;
+  padding: 2px;
+  font-weight: 500;
+  color: #292929;
+  margin-left: 2px;
+}
+.apt-tbl-cell {
+  width: auto;
+  height: auto;
+  padding-right: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #292929;
+}
+.apt-tbl-cell input {
+  padding-left: 5px;
+  margin-right: 2px;
+}
+
+.edit-delete {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50px;
+  height: 35px;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: $mainBlue;
+  font-weight: 500;
+}
+
+.dash-msgr {
+  visibility: hidden;
+}
+
+.apt-msgr {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  overflow-x: scroll;
+  width: 900px;
+  height: 40vh;
+  border-radius: 10px;
+  box-sizing: content-box;
+  margin-bottom: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  box-shadow: 1px 1px 10px black;
+  overflow: hidden;
+}
+
+::placeholder {
+  font-weight: 500;
+  color: #292929;
+}

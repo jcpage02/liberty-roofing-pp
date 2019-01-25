@@ -1,0 +1,67 @@
+@import "../../Styles.scss";
+
+.job-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+}
+.dash-job-header {
+  background-color: $mainWhite;
+  height: 30px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.dash-job-header-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: 30px;
+}
+.job-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+.job-header-logo img{
+  display: flex;
+  justify-content: flex-start;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.dash-job-header-logo {
+  display: none;
+}
+
+.dash-job-title {
+  grid-column: 3/7;
+  font-size: $tblHdrFontSize;
+  font-weight: 700;
+  margin: 8px 0 0 0;
+}
+.job-title {
+  font-weight: 700;
+  width: 300px;
+}
+
+.dash-job-expand {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 8/9;
+  margin: 7px 11px 0 0;
+}
+.job-expand {
+  display: flex;
+  justify-content: flex-end;
+  width: 157px;
+  margin-right: 20px;
+}
+.job-logo img {
+  height: 35px;
+}
+.dash-job-logo img {
+  display: none;
+}

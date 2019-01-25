@@ -1,0 +1,65 @@
+@import '../../../Styles.scss';
+
+.Form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 290px;
+    height: 280px;
+    background-color: #26466F;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 3px 3px 20px black;
+  }
+  .Form-none {
+      display: none;
+  }
+  .schedule-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .schedule-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .schedule-form-row {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+    height: 50px;
+  }
+  .schedule-form-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  
+  }
+  .schedule-form-column h6{
+    margin: 2px;
+    margin-bottom: 0px;
+    font-size: 13px;
+  }
+  .schedule-form input {
+    color: #383838;
+    margin: 3px;
+  }
+  
+  .input-name {
+    width: 125px;
+  }
+  .input-city {
+    width: 125px;
+  }
+  .input-state {
+    width: 50px;
+  }
+  .input-phone {
+    width: 50px;
+  }

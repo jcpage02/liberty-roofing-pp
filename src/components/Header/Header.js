@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import logo from '../../LibertyRoofingLogo.png'
 
 class Header extends Component {
   state = {};
@@ -11,7 +12,9 @@ class Header extends Component {
     return (
       <div className="Header">
         <div className="header-header">
-          <logo className={home === "home" ? "header-home-logo" : "header-logo"}>LIBERTY ROOFING</logo>
+          <div className={home === "home" ? "header-home-logo" : "header-logo"}>
+            <img src={logo} alt='logo'/>
+          </div>
           <div
             className={home === "home" ? "header-home-navbar" : "header-navbar"}
           >
@@ -31,7 +34,7 @@ class Header extends Component {
               <Link to="">
                 <li className="header-li">Contact Us</li>
               </Link>
-              <Link to="/employee/login">
+              <Link to="/customer/login">
                 <li className="header-li">Login</li>
               </Link>
             </ul>

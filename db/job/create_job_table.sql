@@ -1,4 +1,4 @@
-create table job
+create table job_old
 (
     job_id serial primary key,
     job_price float(2),

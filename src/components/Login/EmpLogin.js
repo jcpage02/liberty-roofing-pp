@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "./Login.css";
+import "./Login.scss";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Button from "@material-ui/core/Button";
+import logo from "../../LibertyRoofingLogo.png";
+import { Link } from "react-router-dom";
 
-class Login extends Component {
+class EmpLogin extends Component {
   state = {
     username: "",
     password: "",
@@ -37,41 +38,34 @@ class Login extends Component {
   };
 
   render() {
-    const buttonStyle = {
-      background: "#2B2B2B",
-      color: "white"
-    };
-
     return (
       <div className="Login">
-        <div className="login-box">
-          <div className="login-selectors">
-            <span>
-              Username:{"  "}
+        <div className="login-emp-background" />
+        <div className="login-container">
+          <Link to='/'>
+            <div className="login-header">
+              <img src={logo} alt='logo'/>
+            </div>
+          </Link>
+          <div className="login-box">
+            <h5 className='login-welcome'>Employee Login</h5>
+            <div className="login-selectors">
+              <h5>Username:</h5>
               <input
                 type="text"
                 onChange={e => this.handleChange("username", e.target.value)}
               />
-            </span>
-          </div>
-          <div className="login-selectors">
-            <span>
-              Password:{"  "}
+            </div>
+            <div className="login-selectors">
+              <h5>Password:</h5>
               <input
                 type="password"
                 onChange={e => this.handleChange("password", e.target.value)}
               />
-            </span>
-          </div>
-          <div className="login-selectors">
-            <Button
-              style={buttonStyle}
-              variant="contained"
-              color="primary"
-              onClick={() => this.login()}
-            >
-              Login
-            </Button>
+            </div>
+            <div className="login-selectors">
+              <button onClick={() => this.login()}>Login</button>
+            </div>
           </div>
         </div>
       </div>
@@ -79,4 +73,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default EmpLogin;
