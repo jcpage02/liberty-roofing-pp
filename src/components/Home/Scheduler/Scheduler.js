@@ -66,7 +66,7 @@ class Scheduler extends Component {
     let date = "";
     selectedDays.map(day => {
       let newDate = moment(day).format("MM/DD/YYYY");
-      date += `${newDate},`;
+      return date += `${newDate},`;
     });
     date = date.slice(0, -1);
     let type = "";

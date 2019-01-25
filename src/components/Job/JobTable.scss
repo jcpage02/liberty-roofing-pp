@@ -14,7 +14,6 @@
   width: 100%;
   height: 85%;
   font-size: 20px;
-  // box-shadow: 1px 1px 5px black;
 }
 
 .jobTbl-container {
@@ -27,6 +26,7 @@
   width: 80%;
   height: 300px;
   border-radius: 10px 10px 0 0;
+  box-shadow: 1px 1px 10px black;
 }
 .dash-jobTbl-container {
   display: grid;
@@ -73,15 +73,11 @@
   justify-content: space-between;
   align-items: center;
   padding-left: 10px;
+  margin-right: 10px;
+  width: 55px;
+  color: white;
 }
 .dash-jobTbl-btns {
 width: 0;
 }
 
-.fa-trash-alt {
-  margin: 0 15px 0 10px;
-  color: $mainWhite;
-}
-.fa-edit {
-  color: $mainWhite;
-}

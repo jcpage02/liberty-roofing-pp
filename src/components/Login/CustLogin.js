@@ -42,7 +42,7 @@ class CustLogin extends Component {
         <div className="login-background" />
         <Link to="/">
           <div className="login-header">
-            <img src={logo} />
+            <img src={logo} alt='logo'/>
           </div>
         </Link>
         <div className="login-container">

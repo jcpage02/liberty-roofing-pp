@@ -44,7 +44,7 @@ class EmpLogin extends Component {
         <div className="login-container">
           <Link to='/'>
             <div className="login-header">
-              <img src={logo} />
+              <img src={logo} alt='logo'/>
             </div>
           </Link>
           <div className="login-box">

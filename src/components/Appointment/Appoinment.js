@@ -542,7 +542,7 @@ class Appointments extends Component {
           <div className={dashAptsHdr}>
             <Link to="/">
               <div className={dashLogo}>
-                <img src={logo} />
+                <img src={logo} alt='logo'/>
               </div>
             </Link>
             <h5 className={dashAptsTitle}>Appointments</h5>

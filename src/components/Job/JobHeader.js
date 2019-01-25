@@ -17,7 +17,7 @@ class JobHeader extends Component {
         <div className={jobHdrContainer}>
           <Link to="/">
             <div className={jobHeaderLogo}>
-              <img src={logo} />
+              <img src={logo} alt='logo'/>
             </div>
           </Link>
           <h3 className={jobTitle}>Jobs and Customers</h3>

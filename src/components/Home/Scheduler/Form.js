@@ -7,7 +7,7 @@ class Form extends Component {
     }
   render() {
     const view = this.props.counter === 2 ? "Form" : "Form-none";
-    const { infoChange, typeChange } = this.props;
+    const { infoChange } = this.props;
     return (
       <div className={view}>
         <div className="schedule-form-container">

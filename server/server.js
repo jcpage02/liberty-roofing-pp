@@ -12,13 +12,18 @@ const aptCtrl = require("./apt-controller");
 
 const app = express();
 const {
-    SERVER_PORT,
-    CONNECTION_STRING,
-    SESSION_SECRET,
-    ACCOUNT_SID,
-    AUTH_TOKEN,
+  SERVER_PORT,
+  CONNECTION_STRING,
+  SESSION_SECRET,
+  ACCOUNT_SID,
+  AUTH_TOKEN,
+  REACT_APP_STRIPE_PUBLISHABLE,
+  REACT_APP_STRIPE_SECRET,
+  REACT_APP_HOST_HOME,
+  REACT_APP_HOST_LOGIN
 } = process.env;
 const client = require("twilio")(ACCOUNT_SID, AUTH_TOKEN);
+const stripe = require("stripe")(REACT_APP_STRIPE_SECRET);
 
 app.use(express.json());
 app.use(
@@ -31,28 +36,29 @@ app.use(
 app.use(cors());
 
 app.post("/api/login", authCtrl.login);
-app.post('/cust/login', authCtrl.custLogin)
-app.get('/emp/logout', (req, res) => {
+app.post("/cust/login", authCtrl.custLogin);
+app.get("/emp/logout", (req, res) => {
   req.session.destroy();
-  res.redirect('http://localhost:3000/#/employee/login')
-})
-app.get('/cust/logout', (req, res) => {
+  res.redirect(REACT_APP_HOST_LOGIN);
+});
+app.get("/cust/logout", (req, res) => {
   req.session.destroy();
-  res.redirect('http://localhost:3000/#/')
-})
-app.post("/charge", async (req, res) => {
-    const {amount, description, currency, token} = req.body
-  try {
-    let { status } = await stripe.charges.create({
+  res.redirect(REACT_APP_HOST_HOME);
+});
+app.post("/api/payment", async (req, res) => {
+  const { amount, description, currency, token } = req.body;
+  const charge = await stripe.charges.create(
+    {
       amount,
       currency,
       description,
-      source: token
-    });
-    res.json({ status });
-  } catch (err) {
-    res.status(500).end();
-  }
+      source: token.id
+    },
+    (err, charge) => {
+      if (err) return res.sendStatus(500);
+      else return res.sendStatus(200);
+    }
+  );
 });
 
 //////////// JOB //////////////
@@ -66,7 +72,7 @@ app.get("/send-email", msgCtrl.sendNodeMailer);
 app.get("/api/apts", aptCtrl.getApts);
 app.post("/api/apts", aptCtrl.createApt);
 app.delete("/api/apts/:id", aptCtrl.deleteApt);
-app.put('/api/apts/:id', aptCtrl.updateApt)
+app.put("/api/apts/:id", aptCtrl.updateApt);
 
 massive(CONNECTION_STRING)
   .then(connection => {

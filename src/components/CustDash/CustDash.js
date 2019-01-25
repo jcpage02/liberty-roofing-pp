@@ -21,11 +21,11 @@ class CustDash extends Component {
           <div className="cust-dash-header">
             <Link to="/">
               <div className='cust-header-logo'>
-                <img src={logo} />
+                <img src={logo} alt='logo'/>
               </div>
             </Link>
             <h4>Customer Dashboard</h4>
-            <a href="http://localhost:3000/#/">
+            <a href={process.env.REACT_APP_HOST_HOME}>
               <i className="fas fa-sign-out-alt fa-2x" />
             </a>
           </div>
@@ -39,7 +39,7 @@ class CustDash extends Component {
                     <Checkout
                       name={"Payment"}
                       description={"Payment Submitted!"}
-                      amount={minDue}
+                      amount={minDue * 100}
                     />
                   </div>
                   <div className="cust-balance-amount">
