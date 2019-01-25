@@ -13,7 +13,11 @@ class JobTable extends Component {
   };
 
   componentDidMount() {
-    axios.get("/active-jobs").then(res => this.setState({ jobs: res.data }));
+    axios.get("/active-jobs")
+    .then(res => 
+      this.setState({ jobs: res.data })
+      // console.log(res)
+    );
   }
 
   handleEditable = () => {
@@ -27,6 +31,8 @@ class JobTable extends Component {
   };
 
   render() {
+// console.log(this.state.jobs)
+
     const { jobs, editable, addRow, numRows } = this.state;
     const { pathname } = this.props.location;
     const jobTblContainer =

@@ -537,7 +537,6 @@ class Appointments extends Component {
 ///////////////////////////////////////////////////////////////////////////////////////////////
     return (
       <div className={dashApts}>
-        <div className={dashBackground} />
         <div className={dashContainer}>
           <div className={dashAptsHdr}>
             <Link to="/">
