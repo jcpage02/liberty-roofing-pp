@@ -14,7 +14,7 @@ class AdminDash extends Component {
               <i className="fas fa-sign-out-alt fa-2x" />
             </a>
           </div>
-          <div className='dash-body'>
+          <div className="dash-body">
             <div className="dash-body1">
               <div className="dash-body1-left">
                 <Job />

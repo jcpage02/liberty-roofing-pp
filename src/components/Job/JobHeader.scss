@@ -1,43 +1,53 @@
 @import "../../Styles.scss";
 
 .job-header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 60px;
-  }
-  .job-header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 40px;
-  }
-  .job-logo {
-      display: flex;
-      justify-content: flex-start;
-      width: 300px;
-      margin-top: 10px;
-  }
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+}
+.dash-job-header {
+  display: flex;
+  justify-content: center;
+  background-color: $mainWhite;
+  height: 30px;
+  width: 100%;
+}
 
-  .dash-job-title {
-      display: none;
-  }
-  .job-title {
-      width: 300px;
-  }
+.job-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 40px;
+}
+.job-logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 300px;
+  margin-top: 10px;
+}
 
-  .dash-job-expand {
-      display: none;
-  }
-  .job-expand {
-      display: flex;
-      justify-content: flex-end;
-      width: 300px;
-  }
-  .job-logo img {
-    height: 40px;
-  }
-  .dash-job-logo img {
-    display: none;
-  }
+// .dash-job-title {
+
+//   font-weight: 700;
+// }
+.job-title {
+  font-weight: 700;
+  width: 300px;
+}
+
+// .dash-job-expand {
+
+// }
+.job-expand {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+}
+.job-logo img {
+  height: 40px;
+}
+.dash-job-logo img {
+  display: none;
+}

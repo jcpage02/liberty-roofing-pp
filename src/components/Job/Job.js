@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "./Job.scss";
-import JobHeader from './JobHeader'
-import JobTable from './JobTable'
-import { Link } from "react-router-dom";
+import JobHeader from "./JobHeader";
+import JobTable from "./JobTable";
+import { withRouter } from "react-router-dom";
 
 class Job extends Component {
-  constructor(props){super(props)}
   render() {
+    const {pathname} = this.props.location
+    const job = pathname === "/admin/dash" ? "dash-job" : "Job";
+    const jobContainer = pathname === "/admin/dash" ? "dash-job-container" : "job-container";
     return (
-      <div className="Job">
-        <div className="job-container">
+      <div className={job}>
+        <div className={jobContainer}>
           <JobHeader />
           <JobTable />
         </div>
@@ -18,4 +20,4 @@ class Job extends Component {
   }
 }
 
-export default Job;
+export default withRouter(Job);

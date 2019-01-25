@@ -5,6 +5,12 @@
   left: 0;
   right: 0;
 }
+.dash-job {
+  width: 100%;
+  height: 45%;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 1px 1px 5px black;
+}
 
 .job-container {
   display: flex;
@@ -12,4 +18,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+.dash-job-container {
+  width: 100%;
+  height: 100%;
+}
+
 
