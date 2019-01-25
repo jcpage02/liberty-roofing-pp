@@ -4,6 +4,7 @@ import "./Appointment.scss";
 import Messanger from "./../Messanger/Messanger";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 import logo from "../../LibertyRoofingLogo.png";
 
 class Appointments extends Component {
@@ -25,19 +26,23 @@ class Appointments extends Component {
     images: "",
     date: "",
     type: ""
+
   };
 
   componentDidMount() {
     axios.get("/api/apts").then(res => {
+
       this.setState({
         appointments: res.data,
         selected: false,
         newAppointment: false
       });
+
     });
   }
 
   handleSelector = (prop, e) => {
+
     this.state.selected
       ? this.setState({ [prop]: "", selected: false })
       : this.setState({ [prop]: e, selected: true });
@@ -168,6 +173,7 @@ class Appointments extends Component {
   };
 
   render() {
+
     const { appointments, newAppointment } = this.state;
 
     const { pathname } = this.props.location;
@@ -183,6 +189,7 @@ class Appointments extends Component {
       pathname === "/admin/dash" ? "dash-apt-tbl-header" : "apt-tbl-header";
     const dashTblCell =
       pathname === "/admin/dash" ? "dash-apt-tbl-cell" : "apt-tbl-cell";
+
     const dashTblBtnCol =
       pathname === "/admin/dash" ? "dash-edit-delete" : "edit-delete";
     const dashTblNewBtn =
@@ -332,6 +339,7 @@ class Appointments extends Component {
         />
       </div>
     ) : null;
+
 
     /////////////////////////////////////// ROWS FROM DATABASE ////////////////////////////////////
     let idColumn = ids.map((id, i) => (
@@ -544,6 +552,7 @@ class Appointments extends Component {
               <div className={dashLogo}>
                 <img src={logo} alt='logo'/>
               </div>
+
             </Link>
             <h5 className={dashAptsTitle}>Appointments</h5>
             <div className="apt-expand">
