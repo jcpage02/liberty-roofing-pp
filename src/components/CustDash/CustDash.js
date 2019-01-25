@@ -20,14 +20,14 @@ class CustDash extends Component {
         <div className="cust-container">
           <div className="cust-dash-header">
             <Link to="/">
-              <div className='cust-header-logo'>
-                <img src={logo} alt='logo'/>
+              <div className="cust-header-logo">
+                <img src={logo} alt="logo" />
               </div>
             </Link>
             <h4>Customer Dashboard</h4>
-            <a href={process.env.REACT_APP_HOST_HOME}>
+            <Link to='/'>
               <i className="fas fa-sign-out-alt fa-2x" />
-            </a>
+            </Link>
           </div>
           <div className="cust-body">
             <div className="cust-left">

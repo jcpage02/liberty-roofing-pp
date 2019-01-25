@@ -13,14 +13,14 @@ class AdminDash extends Component {
           <div className="admin-dash-header">
             <Link to="/">
               <div className="adminDash-logo">
-                <img src={logo} alt='logo'/>
+                <img src={logo} alt="logo" />
               </div>
             </Link>
             <h4>Admin Dashboard</h4>
-            <div className='adminDash-back'>
-              <a href={process.env.REACT_APP_EMP_LOGIN}>
+            <div className="adminDash-back">
+              <Link to='/employee/login'>
                 <i className="fas fa-sign-out-alt fa-2x" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="dash-body">
