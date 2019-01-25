@@ -6,7 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  height: 50%;
+  height: 250px;
   font-weight: 700;
 }
 .Appointments-lg {
@@ -36,11 +36,11 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  height: 95%;
+  height: 250px;
   box-shadow: 1px 1px 5px black;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: #26466F;  
+  background-color: #26466f;
 }
 .apt-background {
   position: fixed;
@@ -60,7 +60,7 @@
   border-top-right-radius: 10px;
   padding: 0 10px;
   padding-top: 5px;
-  color: #292929;
+  color: $mainGrey;
   background-color: #ffffff;
   font-weight: 700;
 }
@@ -74,10 +74,10 @@
   font-weight: 700;
 }
 
-.dash-apt-header-logo img{
+.dash-apt-header-logo img {
   display: none;
 }
-.apt-header-logo img{
+.apt-header-logo img {
   height: 40px;
   margin-left: 50px;
 }
@@ -101,12 +101,11 @@
 .apt-expand {
   width: 20px;
   height: 20px;
-  margin-right: 10px;
 }
 .fa-expand {
   color: #292929;
 }
-.fa-save{
+.fa-save {
   padding-right: 6px;
   padding-top: 1px;
 }
@@ -147,8 +146,8 @@
   justify-content: flex-start;
   align-content: center;
   overflow-x: scroll;
-  width: 98%;
-  height: 88%;
+  width: 100%;
+  height: 216px;
   margin-top: 10px;
   margin-top: 4px;
 }
@@ -165,7 +164,7 @@
   margin-left: 100px;
   margin-right: 100px;
   color: #292929;
-  background-color: $mainWhite;  
+  background-color: $mainWhite;
   box-shadow: 1px 1px 10px black;
 }
 .apt-tbl-column {
@@ -180,7 +179,7 @@
 
 .dash-apt-tbl-header {
   color: #ffffff;
-  background-color: #26466F;
+  background-color: #26466f;
   width: 100%;
   padding: 5px;
 }
@@ -196,10 +195,10 @@
 .dash-apt-tbl-cell {
   width: auto;
   height: auto;
-  padding: 3px;
-  transition: .3s;
+  padding: 2px;
   font-weight: 500;
   color: #292929;
+  margin-left: 2px;
 }
 .apt-tbl-cell {
   width: auto;

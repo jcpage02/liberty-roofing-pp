@@ -28,14 +28,20 @@ class JobTable extends Component {
 
   render() {
     const { jobs, editable, addRow, numRows } = this.state;
-    const {pathname} = this.props.location
-    const jobTblContainer = pathname === "/admin/dash" ? "dash-jobTbl-container" : "jobTbl-container";
+    const { pathname } = this.props.location;
+    const jobTblContainer =
+      pathname === "/admin/dash" ? "dash-jobTbl-container" : "jobTbl-container";
     const jobTbl = pathname === "/admin/dash" ? "dash-JobTable" : "JobTable";
+    const addBtn = pathname === "/admin/dash" ? "dash-jobTbl-plus" : "far fa-plus-square fa-sm";
+    const tblBtns = pathname === "/admin/dash" ? "dash-jobTbl-btns" : "jobTbl-btns";
+    const saveBtn = pathname === "/admin/dash" ? "" : "far fa-save fa-sm";
+    const trashBtn = pathname === "/admin/dash" ? "" : "far fa-trash-alt fa-sm";
+    const editSave = editable ? "far fa-save fa-sm" : "far fa-edit fa-sm";
+    const editBtn = pathname === "/admin/dash" ? '' : editSave
 
     let keys = [];
     let values = [];
 
-    const editSave = editable ? "far fa-save fa-sm" : "far fa-edit fa-sm";
 
     const headers = jobs.map((jobObj, i) => {
       if (i === 0) {
@@ -74,7 +80,7 @@ class JobTable extends Component {
           if (newKey === "id") {
             return (
               <div
-                className="far fa-plus-square fa-sm"
+                className={addBtn}
                 onClick={() => {
                   this.handleAddRow();
                 }}
@@ -97,10 +103,10 @@ class JobTable extends Component {
           : (newValue = value);
         if (indx === 0) {
           return (
-            <div className="jobTbl-btns">
-              <div className="far fa-trash-alt fa-sm" value={i} />
+            <div className={tblBtns}>
+              <div className={trashBtn} value={i} />
               <div
-                className={editSave}
+                className={editBtn}
                 value={i}
                 onClick={() => this.handleEditable()}
               />
@@ -115,7 +121,7 @@ class JobTable extends Component {
       ? numRows.map((row, i) => {
           return i === 0 ? (
             <div className="jobTbl-save">
-              <div className="far fa-save fa-sm" />
+              <div className={saveBtn} />
             </div>
           ) : (
             <div className="jobTbl-item" contentEditable="true" />

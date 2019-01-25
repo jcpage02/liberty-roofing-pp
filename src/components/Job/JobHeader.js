@@ -9,12 +9,14 @@ class JobHeader extends Component {
     const jobTitle = pathname === "/admin/dash" ? "dash-job-title" : "job-title";
     const jobExpand = pathname === "/admin/dash" ? "dash-job-expand" : "job-expand";
     const jobHeader = pathname === "/admin/dash" ? "dash-job-header" : "job-header";
+    const jobHdrContainer = pathname === "/admin/dash" ? "dash-job-header-container" : "job-header-container";
+    const jobHeaderLogo = pathname === "/admin/dash" ? "dash-job-header-logo" : "job-header-logo";
 
     return (
       <div className={jobHeader}>
-        <div className="job-header-container">
+        <div className={jobHdrContainer}>
           <Link to="/">
-            <div className="job-logo">
+            <div className={jobHeaderLogo}>
               <img src={logo} />
             </div>
           </Link>

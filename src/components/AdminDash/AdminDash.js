@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./AdminDash.scss";
 import Job from "../Job/Job";
 import Appointments from "../Appointment/Appoinment";
+import logo from "../../LibertyRoofingLogo.png";
 
 class AdminDash extends Component {
   render() {
@@ -9,10 +11,17 @@ class AdminDash extends Component {
       <div className="AdminDash">
         <div className="admin-dash-container">
           <div className="admin-dash-header">
+            <Link to="/">
+              <div className="adminDash-logo">
+                <img src={logo} />
+              </div>
+            </Link>
             <h4>Admin Dashboard</h4>
-            <a href="http://localhost:3000/#/employee/login">
-              <i className="fas fa-sign-out-alt fa-2x" />
-            </a>
+            <div className='adminDash-back'>
+              <a href="http://localhost:3000/#/employee/login">
+                <i className="fas fa-sign-out-alt fa-2x" />
+              </a>
+            </div>
           </div>
           <div className="dash-body">
             <div className="dash-body1">

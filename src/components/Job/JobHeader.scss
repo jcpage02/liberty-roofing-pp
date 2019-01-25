@@ -8,45 +8,59 @@
   height: 60px;
 }
 .dash-job-header {
-  display: flex;
-  justify-content: center;
   background-color: $mainWhite;
   height: 30px;
   width: 100%;
+  border-radius: 10px 10px 0 0;
 }
 
+.dash-job-header-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: 30px;
+}
 .job-header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 40px;
+  height: 50px;
 }
-.job-logo {
+.job-header-logo img{
   display: flex;
   justify-content: flex-start;
-  width: 300px;
-  margin-top: 10px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.dash-job-header-logo {
+  display: none;
 }
 
-// .dash-job-title {
-
-//   font-weight: 700;
-// }
+.dash-job-title {
+  grid-column: 3/7;
+  font-size: $tblHdrFontSize;
+  font-weight: 700;
+  margin: 8px 0 0 0;
+}
 .job-title {
   font-weight: 700;
   width: 300px;
 }
 
-// .dash-job-expand {
-
-// }
+.dash-job-expand {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 8/9;
+  margin: 7px 11px 0 0;
+}
 .job-expand {
   display: flex;
   justify-content: flex-end;
-  width: 300px;
+  width: 157px;
+  margin-right: 20px;
 }
 .job-logo img {
-  height: 40px;
+  height: 35px;
 }
 .dash-job-logo img {
   display: none;
