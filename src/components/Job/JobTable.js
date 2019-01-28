@@ -50,7 +50,7 @@ class JobTable extends Component {
 
 
     const headers = jobs.map((jobObj, i) => {
-      if (i === 0) {
+     if (i === 0) {
         keys.push(Object.keys(jobObj));
         let newKey = "";
         return keys[0].map(key => {
@@ -102,9 +102,9 @@ class JobTable extends Component {
 
       return values[i].map((value, indx) => {
         let newValue = "";
-        indx === 2
+        indx === 11
           ? (newValue = moment(value).format("MM/DD/YYYY"))
-          : indx === 8
+          : indx === 14
           ? (newValue = moment(value).format("MM/DD/YYYY"))
           : (newValue = value);
         if (indx === 0) {

@@ -13,7 +13,7 @@ module.exports = {
     if (!compare) {
       return res.status(401).send({ message: "Incorrect Password" });
     }
-    req.session.user = { id: rep_id, username: rep_username };
+    req.session.user = { id: rep_id, username: rep_username, isAdmin: is_admin };
     res.status(200).send({
       message: "logged in",
       userData: req.session.user,

@@ -8,7 +8,6 @@ import Login from './components/Login/Login'
 import Job from './components/Job/Job'
 import Rep from './components/Rep/Rep'
 import Appointment from './components/Appointment/Appoinment'
-import Goal from './components/Goal/Goal'
 
 export default (
     <Switch>
@@ -19,6 +18,5 @@ export default (
         <Route path='/admin/jobs' component={Job} />
         <Route path='/admin/reps' component={Rep} />
         <Route path='/admin/appointments' component={Appointment} />
-        <Route path='/admin/goals' component={Goal} />
     </Switch>
 )

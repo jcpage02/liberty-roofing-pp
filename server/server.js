@@ -9,6 +9,7 @@ const authCtrl = require("./auth_controller");
 const jobCtrl = require("./job_controller");
 const msgCtrl = require("./msg_controller");
 const aptCtrl = require("./apt-controller");
+const repCtrl = require('./rep_controller')
 
 const app = express();
 const {
@@ -75,6 +76,9 @@ app.get("/api/apts", aptCtrl.getApts);
 app.post("/api/apts", aptCtrl.createApt);
 app.delete("/api/apts/:id", aptCtrl.deleteApt);
 app.put("/api/apts/:id", aptCtrl.updateApt);
+
+//////////// REP //////////////
+app.get('/reps', repCtrl.getReps)
 
 massive(CONNECTION_STRING)
   .then(connection => {

@@ -5,9 +5,9 @@ import routes from "./routes";
 class App extends Component {
   render() {
     return (
-        <div className="App">
-          {routes}
-        </div>
+      <div className="App">
+        {routes}
+      </div>
     );
   }
 }

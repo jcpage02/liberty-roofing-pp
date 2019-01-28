@@ -170,6 +170,7 @@ class Appointments extends Component {
       apt_date,
       apt_type
     });
+    this.handleEditBtn()
   };
 
   render() {
@@ -202,8 +203,6 @@ class Appointments extends Component {
         : "fas fa-edit fa-lg";
     const dashTblDelBtn =
       pathname === "/admin/dash" ? "" : "far fa-trash-alt fa-lg";
-    const dashBackground =
-      pathname === "/admin/dash" ? "dash-apt-background" : "apt-background";
     const dashContainer =
       pathname === "/admin/dash" ? "dash-apt-container" : "apt-container";
     const dashFirstTblCol =
