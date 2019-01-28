@@ -31,7 +31,7 @@
   font-weight: 800;
   text-shadow: 1px 1px 5px black;
   font-size: 20px;
-  width: 400px;
+  width: 100%;
   padding: 5px;
   margin: 0;
 }
@@ -41,7 +41,7 @@
   letter-spacing: 1px;
   font-weight: 700;
   font-size: 16px;
-  width: 400px;
+  width: 100%;
   padding: 5px;
   margin: 0;
 }
@@ -113,6 +113,6 @@
 
 @media (max-width: 500px) {
   .mini-cal {
-    margin-left: -15px;
+    margin-left: -20px;
   }
 }

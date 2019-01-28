@@ -314,13 +314,17 @@
     margin-top: 30px;
   }
   .cust-balance-container {
-    height: 250px;
+    height: 225px;
   }
   .cust-activity-container {
-    height: 250px;
+    height: 225px;
   }
   .cust-activity-amount {
-    height: 120px;
+    height: 100px;
     overflow: scroll;
+    margin-bottom: 5px;
+  }
+  .cust-activity-header {
+    margin-top: 0px;
   }
 }
