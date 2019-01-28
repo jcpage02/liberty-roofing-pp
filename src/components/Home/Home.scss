@@ -100,4 +100,12 @@ $mainFontColor: #26466F;
   color: white;
 }
 
+@media (max-width: 500px) {
+  .home-story {
+    width: 90%;
+  }
+  .home-reviews {
+    width: 90%;
+  }
+}
 

@@ -39,15 +39,14 @@ class CustLogin extends Component {
   render() {
     return (
       <div className="Login">
-        <div className="login-background" />
-        <Link to="/">
-          <div className="login-header">
-            <img src={logo} alt='logo'/>
-          </div>
-        </Link>
         <div className="login-container">
+          <div className="login-header">
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
+          </div>
           <div className="login-box">
-            <h5 className='login-welcome'>Welcome Back!</h5>
+            <h5 className="login-welcome">Welcome Back!</h5>
             <div className="login-selectors">
               <h5>Username:</h5>
               <input

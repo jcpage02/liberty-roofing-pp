@@ -104,3 +104,15 @@
   visibility: hidden;
   margin-left: 28px;
 }
+
+@media (max-width: 750px) {
+  .Scheduler {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .mini-cal {
+    margin-left: -15px;
+  }
+}

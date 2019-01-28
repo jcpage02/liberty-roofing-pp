@@ -1,24 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css";
-import logo from '../../LibertyRoofingLogo.png'
+import "./Header.scss";
+import logo from "../../LibertyRoofingLogo.png";
 
 class Header extends Component {
-  state = {};
+  state = {
+    menu: false
+  };
+
+  menuToggle = () => {
+    this.setState({ menu: !this.state.menu });
+  };
 
   render() {
     const { home } = this.props;
+    const { menu } = this.state;
+
+    const navLinks = menu ? "header-ul-menu" : "header-ul";
 
     return (
       <div className="Header">
         <div className="header-header">
           <div className={home === "home" ? "header-home-logo" : "header-logo"}>
-            <img src={logo} alt='logo'/>
+            <img src={logo} alt="logo" />
           </div>
           <div
             className={home === "home" ? "header-home-navbar" : "header-navbar"}
           >
-            <ul className="header-ul">
+            <ul className={navLinks}>
               <Link to="">
                 <li className="header-li">Residential Services</li>
               </Link>
@@ -39,6 +48,7 @@ class Header extends Component {
               </Link>
             </ul>
           </div>
+          <i className="fas fa-bars fa-2x" onClick={() => this.menuToggle()} />
         </div>
       </div>
     );

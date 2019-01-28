@@ -35,7 +35,7 @@
   color: #3f3f3f;
 }
 .adminDash-back {
-  width: 176px;
+  width: 340px;
 }
 
 .fa-sign-out-alt {
@@ -92,4 +92,39 @@
 .dash-body1-right {
   width: 25%;
   height: auto;
+}
+
+@media (max-width: 800px) {
+  .adminDash-logo img {
+    height: 30px;
+    margin: 10px 20px;
+  }
+  .admin-dash-header h4 {
+    font-size: 20px;
+  }
+  .adminDash-back {
+    width: 250px;
+  }
+  .dash-body1-left {
+    width: 90vw;
+    height: 450px;
+  }
+  .dash-body1-right {
+    width: 90vw;
+    height: 450px;
+    margin-top: 45px;
+  }
+  .dash-body {
+    margin-top: -12px;
+  }
+  .AdminDash {
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 450px) {
+  .adminDash-logo img {
+    height: 20px;
+    margin: 10px 20px;
+  }
 }

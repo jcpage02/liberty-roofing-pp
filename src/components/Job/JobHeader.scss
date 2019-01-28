@@ -65,3 +65,16 @@
 .dash-job-logo img {
   display: none;
 }
+
+@media (max-width: 500px) {
+  .job-header-logo img {
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  .job-title {
+    font-size: 20px;
+    width: 200px;
+    margin-left: 45px;
+  }
+}

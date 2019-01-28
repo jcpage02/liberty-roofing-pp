@@ -128,11 +128,14 @@
   height: 30px;
   border: 0;
   border-style: none;
-  background-color: #eeeeee;
   color: #3f3f3f;
   border-radius: 3px;
   margin: 10px 0;
   box-shadow: 1px 1px 5px rgb(80, 80, 80);
+}
+.StripeCheckout span {
+  background-color: $mainBlue;
+  background-image: none;
 }
 
 .cust-balance-header button:hover {
@@ -246,4 +249,78 @@
 }
 .cust-activity-row h6 {
   color: $mainGrey;
+}
+
+@media (max-width: 1100px) {
+  .cust-body {
+    display: grid;
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 750px) {
+  .cust-dash-header h4 {
+    font-size: $headerFontSizeSm;
+  }
+  .cust-left {
+    width: 375px;
+  }
+  .cust-right {
+    width: 375px;
+  }
+  .cust-balance-header{
+    margin-right: 30px;
+  }
+  .StripeCheckout {
+    width: 60px;
+  }
+  .cust-header-logo img {
+    height: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .cust-dash-header h4 {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  .cust-left {
+    width: 325px;
+  }
+  .cust-right {
+    width: 325px;
+  }
+  .cust-balance-header{
+    margin-right: 30px;
+  }
+  .cust-balance-header h5{
+    margin-left: 100px;
+  }
+  .StripeCheckout {
+    width: 60px;
+  }
+  .cust-header-logo img {
+    height: 25px;
+    margin-left: -10px;
+  }
+  .cust-balance-amount h5 {
+    font-size: 14px;
+    width: 180px;
+  }
+}
+
+@media (max-height: 900px) {
+  .cust-body {
+    margin-top: 30px;
+  }
+  .cust-balance-container {
+    height: 250px;
+  }
+  .cust-activity-container {
+    height: 250px;
+  }
+  .cust-activity-amount {
+    height: 120px;
+    overflow: scroll;
+  }
 }

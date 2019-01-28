@@ -1,0 +1,130 @@
+@import '../../Styles.scss';
+
+.Header {
+  width: 100vw;
+}
+
+.header-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 75px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.header-home-logo {
+  margin-left: 80px;
+}
+.header-home-logo img{
+  width: 200px;
+  margin-top: 25px;
+}
+
+.header-logo {
+  position: absolute;
+  left: calc(50% - 80px);
+}
+
+.header-home-navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70vw;
+  margin-bottom: -10px;
+}
+
+.header-navbar {
+  visibility: hidden;
+}
+
+.header-ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  margin-right: 60px;
+  margin-top: 30px;
+  width: 100%;
+}
+.header-ul-menu {
+  display: none;
+}
+
+.header-li {
+  font-size: 16px;
+  padding: 5px 14px;
+  color: #193B67;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.header-li:hover {
+  color: white;
+  font-weight: 600;
+  background-color: #193B67;
+  border-radius: 3px;
+}
+
+.header-li-menu {
+  font-size: 16px;
+  color: #193B67;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.fa-bars {
+ display: none;
+}
+
+@media (max-width: 950px) {
+  .header-header {
+    height: 50px;
+  }
+  .header-home-logo img{
+    width: 150px;
+  }
+  .header-li {
+    font-size: 12px;
+  }
+  .header-ul {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 750px) {
+  .header-header {
+    height: 35px;
+  }
+  .header-home-logo img{
+    width: 150px;
+    margin-top: 30px;
+    margin-left: -30px;
+  }
+  .header-home-navbar {
+    justify-content: flex-end;
+  }
+  .header-ul {
+    display: none;
+  }
+  .fa-bars {
+    display: inherit;
+    color: $mainBlue;
+    margin-right: 30px;
+    margin-top: 35px;
+  }
+  .header-ul-menu {
+    position: fixed;
+    right: 0;
+    top: 74px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: $mainWhite;
+    list-style-type: none;
+    width: calc(40vw + 50px);
+    padding: 20px;
+    z-index: 2;
+  }
+}

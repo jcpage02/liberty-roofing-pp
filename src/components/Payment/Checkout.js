@@ -14,7 +14,6 @@ class Checkout2 extends Component {
 
   render() {
     const {amount}  = this.props
-    console.log(amount)
     return (
       <div className="Checkout">
         <StripeCheckout

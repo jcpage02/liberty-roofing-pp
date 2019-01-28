@@ -152,7 +152,7 @@
   overflow-x: scroll;
   width: 80%;
   height: 40vh;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0 ;
   box-sizing: content-box;
   margin-left: 100px;
   margin-right: 100px;
@@ -241,4 +241,21 @@
 ::placeholder {
   font-weight: 500;
   color: #292929;
+}
+
+@media (max-width: 500px) {
+  .apt-header-logo img {
+    height: 20px;
+    margin-left: 20px;
+  }
+  .apt-title {
+    font-size: 20px;
+    margin-right: 25px;
+  }
+  .apt-tbl {
+    width: 90%;
+  }
+  .apt-msgr {
+    width: 340px;
+  }
 }

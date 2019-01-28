@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
 import axios from "axios";
 import "./AdminDash.scss";
+import {updateIsLoggedIn} from '../../ducks/reducer'
 import Job from "../Job/Job";
 import Appointments from "../Appointment/Appoinment";
 import Rep from '../Rep/Rep'
 import logo from "../../LibertyRoofingLogo.png";
 
 class AdminDash extends Component {
+
+  state = {
+    isLoggedIn: false
+  }
   // componentDidMount() {
-  //   axios.get();
+  //   console.log(this.props)
   // }
 
   render() {
+    // const {updateIsLoggedIn} = this.props
     return (
       <div className="AdminDash">
         <div className="admin-dash-container">
@@ -46,4 +53,11 @@ class AdminDash extends Component {
   }
 }
 
-export default AdminDash;
+const mapStateToProps = (reduxState) => {
+  const {isLoggedIn} = reduxState
+  return {
+    isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps, {updateIsLoggedIn})(AdminDash);

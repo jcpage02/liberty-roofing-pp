@@ -81,3 +81,9 @@
 width: 0;
 }
 
+@media (max-width: 500px) {
+  .jobTbl-container {
+    width: 90%;
+    margin-top: 50px;
+  }
+}
